@@ -115,4 +115,7 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/worcdlo/worcdlo.github.io.git
+  branch: hexo_test
+  ignore_hidden: false
