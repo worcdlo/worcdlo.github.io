@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: HEXO
+subtitle: 'Hey guys, welcome to my notes.'
 description: ''
 keywords:
-author: John Doe
+author: Aaron Yan
 language: en
-timezone: ''
+timezone: 'UTC'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://worcdlo.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -44,7 +44,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -55,6 +55,18 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+
+# beautiful hightlight
+prism_plugin:
+  mode: "preprocess" # realtime/preprocess
+  theme: "tomorrow"
+  line_number: false # default false
+  custom_css:
+
+# search engin
+search:
+  path: search.xml
+  field: post
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -97,7 +109,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+#theme: landscape
+theme: hexo-theme-matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
