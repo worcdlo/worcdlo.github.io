@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="修正hexo-prism-plugin，大括號變為`&amp;#123;`和`&amp;#125`, HEXO">
-    <meta name="description" content="修正hexo-prism-plugin的大括號顯示問題">
+    <meta name="keywords" content="Leetcode Contest Review - Biweekly 66 &amp; Weekly 269, HEXO">
+    <meta name="description" content="Personal review of Leetcode contest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>修正hexo-prism-plugin，大括號變為`&amp;#123;`和`&amp;#125` | HEXO</title>
+    <title>Leetcode Contest Review - Biweekly 66 &amp; Weekly 269 | HEXO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -224,12 +224,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/LeetcodeIcon.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">修正hexo-prism-plugin，大括號變為`&amp;#123;`和`&amp;#125`</h1>
+                    <h1 class="description center-align post-title">Leetcode Contest Review - Biweekly 66 &amp; Weekly 269</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +345,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/Competitive-Programming/">
+                                <span class="chip bg-color">Competitive Programming</span>
+                            </a>
+                        
+                            <a href="/tags/Leetcode/">
+                                <span class="chip bg-color">Leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/Leetcode-Contest/">
+                                <span class="chip bg-color">Leetcode Contest</span>
                             </a>
                         
                     </div>
@@ -357,8 +365,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/Competitive-Programming/" class="post-category">
+                                Competitive Programming
                             </a>
                         
                     </div>
@@ -370,7 +378,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-08
+                    2021-11-28
                 </div>
                 
 
@@ -391,23 +399,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h1><p>使用hexo-prism-plugin，在程式區塊中，左右大括號會自動被轉為html語法，也就是<code>&amp;#123;</code>和<code>&amp;#125</code>。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>找到 <code>/node_modules\hexo-prism-plugin\src\index.js</code></li>
-<li>將const map修改為</li>
-</ol>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token string">'&amp;#39;'</span><span class="token punctuation">:</span> <span class="token string">'\''</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;amp;'</span><span class="token punctuation">:</span> <span class="token string">'&amp;'</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;gt;'</span><span class="token punctuation">:</span> <span class="token string">'>'</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;lt;'</span><span class="token punctuation">:</span> <span class="token string">'&lt;'</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;quot;'</span><span class="token punctuation">:</span> <span class="token string">'"'</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;#123;'</span><span class="token punctuation">:</span> <span class="token string">'{'</span><span class="token punctuation">,</span>
-  <span class="token string">'&amp;#125;'</span><span class="token punctuation">:</span> <span class="token string">'}'</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ele828/hexo-prism-plugin/issues/61">hexo-prism-plugin: curly bracket issue</a></li>
+                <p><img src="/images/LeetcodeIcon.png"></p>
+<h2 id="Leetcode-Biweekly-Contest-66-Review"><a href="#Leetcode-Biweekly-Contest-66-Review" class="headerlink" title="Leetcode Biweekly Contest 66 Review"></a>Leetcode Biweekly Contest 66 Review</h2><h3 id="Q1-LC-2085-Count-Common-Words-With-One-Occurrence"><a href="#Q1-LC-2085-Count-Common-Words-With-One-Occurrence" class="headerlink" title="Q1: LC-2085. Count Common Words With One Occurrence"></a>Q1: LC-2085. Count Common Words With One Occurrence</h3><p>簡單查數量的題目，比typing的速度而已</p>
+<h3 id="Q2-LC-2086-Minimum-Number-of-Buckets-Required-to-Collect-Rainwater-from-Houses"><a href="#Q2-LC-2086-Minimum-Number-of-Buckets-Required-to-Collect-Rainwater-from-Houses" class="headerlink" title="Q2: LC-2086. Minimum Number of Buckets Required to Collect Rainwater from Houses"></a>Q2: LC-2086. Minimum Number of Buckets Required to Collect Rainwater from Houses</h3><p>明顯是greedy的題目，但實作時有點卡住，沒有理好要以房子為單位搜尋還是以空地為單位搜尋，多花了幾分鐘。</p>
+<h3 id="Q3-LC-2087-Minimum-Cost-Homecoming-of-a-Robot-in-a-Grid"><a href="#Q3-LC-2087-Minimum-Cost-Homecoming-of-a-Robot-in-a-Grid" class="headerlink" title="Q3: LC-2087. Minimum Cost Homecoming of a Robot in a Grid"></a>Q3: LC-2087. Minimum Cost Homecoming of a Robot in a Grid</h3><p>只要看到最短距離，就腦殘想用Dijkstra，反而沒意識到這題所有的最短路徑都是最短距離，隨便挑一條greedy計算就可以了。時間浪費在實作dijkstra外加一個TLE</p>
+<h3 id="Q4-LC-2088-Count-Fertile-Pyramids-in-a-Land"><a href="#Q4-LC-2088-Count-Fertile-Pyramids-in-a-Land" class="headerlink" title="Q4: LC-2088. Count Fertile Pyramids in a Land"></a>Q4: LC-2088. Count Fertile Pyramids in a Land</h3><p>明顯是DP問題，我的解法重複又冗長的程式碼太多，這部分應該包成function或是翻轉測資就好。</p>
+<p>另外我解這種稍微複雜的題目，常常階段性的寫程式碼，例如這題我先寫一段程式，對每個點都找到往左及往右可以抵達的距離，但當下並沒有確定好下一步該做什麼，只是覺得這樣做有幫助，事後也確實是有幫助，並以此為基礎完成這題。值得反省的是，<strong>如果這麼做沒幫助的話，是否不但浪費時間，又限縮了自己後續思考問題的方式</strong>。</p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>40分鐘完賽加上1次TLE：總名次160/8620</p>
+<hr>
+<h2 id="Leetcode-Weekly-Contest-269-Review"><a href="#Leetcode-Weekly-Contest-269-Review" class="headerlink" title="Leetcode Weekly Contest 269 Review"></a>Leetcode Weekly Contest 269 Review</h2><h3 id="Q1-LC-2089-Find-Target-Indices-After-Sorting-Array"><a href="#Q1-LC-2089-Find-Target-Indices-After-Sorting-Array" class="headerlink" title="Q1: LC-2089. Find Target Indices After Sorting Array"></a>Q1: LC-2089. Find Target Indices After Sorting Array</h3><p>比打字速度的題目</p>
+<h3 id="Q2-LC-2090-K-Radius-Subarray-Averages"><a href="#Q2-LC-2090-K-Radius-Subarray-Averages" class="headerlink" title="Q2: LC-2090. K Radius Subarray Averages"></a>Q2: LC-2090. K Radius Subarray Averages</h3><p>固定遮罩的總合問題，也是看到就知道怎麼做。值得檢討的是我<strong>題目常常看一半就開始作答</strong>，做到一半的時候發覺欠缺了一些資訊才回去敘述中找，以本例來說我寫到一半才回去找遮罩寬度的定義以及輸出要落在什麼位置，算是蠻不好的習慣，另外也是同一個原因，一些需要事先定義的變數在寫的過程才一直補上，導致程式碼前幾行看起來沒有章法又混亂。</p>
+<h3 id="Q3-LC-2091-Removing-Minimum-and-Maximum-From-Array"><a href="#Q3-LC-2091-Removing-Minimum-and-Maximum-From-Array" class="headerlink" title="Q3: LC-2091. Removing Minimum and Maximum From Array"></a>Q3: LC-2091. Removing Minimum and Maximum From Array</h3><p>我覺得這題寫得還不錯，只是有些程式碼看起來可以合併成一行才不會顯得有點冗，這場到寫完第三題共花7分鐘。</p>
+<h3 id="Q4-LC-2092-Find-All-People-With-Secret"><a href="#Q4-LC-2092-Find-All-People-With-Secret" class="headerlink" title="Q4: LC-2092. Find All People With Secret"></a>Q4: LC-2092. Find All People With Secret</h3><p>明顯是依照時間處理DSU的問題。只要是時間順序的題目，都要記得「<strong>確認同一個時間內是否可能有多筆事件</strong>」，第一版繳交的答案就是沒意識到這件事情導致WA。為了處理同一時間產生的事件，需要在這個時間點分群以及判斷哪些群該被納入答案中，但我第二版沒處理好分群問題，浪費時間寫了一個現在看來不可思議的答案，當時直到寫完測試才發現問題，最後第三版才改對。因此單單這題花了27分鐘外加一個WA，大把時間浪費在解bug以及莫名其妙的錯誤，明顯也是沒想清楚就開始寫題目的壞習慣導致。</p>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p>34分鐘完賽加上1次WA：總名次: 215/10907</p>
+<hr>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>題目及測資範圍都看完再作答 (cirtical)</li>
+<li>做後續步驟前最好再問自己一遍真的想清楚了嗎 (cirtical)<ul>
+<li>包含確認是否有必要先寫中間步驟的程式碼</li>
+</ul>
+</li>
+<li>競速心態要調整，最好把時間都遮起來</li>
+<li>時間序的題目要注意重複時間問題</li>
+<li>冗長又重複的程式碼該包成function</li>
 </ul>
 
                 
@@ -425,7 +439,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Aaron</a>
+                    <a href="/about" rel="external nofollow noreferrer">Aaron Yan</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -435,7 +449,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2021/12/08/fix-curly-bracket-in-hexo-prism-plugin/">https://worcdlo.github.io/2021/12/08/fix-curly-bracket-in-hexo-prism-plugin/</a>
+                    <a href="https://worcdlo.github.io/2021/11/29/Leetcode-Contest-Review-Biweekly66-Weekly269/">https://worcdlo.github.io/2021/11/29/Leetcode-Contest-Review-Biweekly66-Weekly269/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -448,7 +462,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint policy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Aaron</a>
+                    <a href="/about" target="_blank">Aaron Yan</a>
                     !
                 </span>
             </div>
@@ -473,8 +487,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/Competitive-Programming/">
+                                    <span class="chip bg-color">Competitive Programming</span>
+                                </a>
+                            
+                                <a href="/tags/Leetcode/">
+                                    <span class="chip bg-color">Leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/Leetcode-Contest/">
+                                    <span class="chip bg-color">Leetcode Contest</span>
                                 </a>
                             
                         </div>
@@ -521,12 +543,60 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/08/Leetcode-Contest-Review-Weekly270/">
+                <a href="/2021/12/07/hello-world-hexo/">
                     <div class="card-image">
                         
-                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Weekly 270">
+                        <img src="/images/hexo_logo.jpg" class="responsive-img" alt="Hello Hexo">
                         
-                        <span class="card-title">Leetcode Contest Review - Weekly 270</span>
+                        <span class="card-title">Hello Hexo</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hi, welcom to Hexo. It's a short guideline to teach you how to use Hexo.
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Current&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/29/Leetcode-Contest-Review-Biweekly66-Weekly269/">
+                    <div class="card-image">
+                        
+                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Biweekly 66 &amp; Weekly 269">
+                        
+                        <span class="card-title">Leetcode Contest Review - Biweekly 66 &amp; Weekly 269</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -536,9 +606,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -551,6 +621,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -564,66 +635,6 @@
                     
                     <a href="/tags/Leetcode-Contest/">
                         <span class="chip bg-color">Leetcode Contest</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/07/Graph-Euler-Circuit/">
-                    <div class="card-image">
-                        
-                        <img src="/images/euler_circuit.png" class="responsive-img" alt="Eulerian Circuit and Path">
-                        
-                        <span class="card-title">Eulerian Circuit and Path</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Detailed explanation of Eulerian circuit and path
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Graph/" class="post-category">
-                                    Graph
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Graph/">
-                        <span class="chip bg-color">Graph</span>
-                    </a>
-                    
-                    <a href="/tags/Euler-Circuit/">
-                        <span class="chip bg-color">Euler Circuit</span>
-                    </a>
-                    
-                    <a href="/tags/Euler-Path/">
-                        <span class="chip bg-color">Euler Path</span>
-                    </a>
-                    
-                    <a href="/tags/DSA-Tutorial-Graph/">
-                        <span class="chip bg-color">DSA Tutorial Graph</span>
                     </a>
                     
                 </div>

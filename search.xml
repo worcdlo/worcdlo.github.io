@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Leetcode Weekly Contest 270 Review</title>
-      <link href="/2021/12/08/Leetcode-Weekly-Contest-270-Review/"/>
-      <url>/2021/12/08/Leetcode-Weekly-Contest-270-Review/</url>
+      <title>Leetcode Contest Review - Weekly 270</title>
+      <link href="/2021/12/08/Leetcode-Contest-Review-Weekly270/"/>
+      <url>/2021/12/08/Leetcode-Contest-Review-Weekly270/</url>
       
-        <content type="html"><![CDATA[<h1 id="Leetcode-Weekly-Contest-270-Review"><a href="#Leetcode-Weekly-Contest-270-Review" class="headerlink" title="Leetcode Weekly Contest 270 Review"></a>Leetcode Weekly Contest 270 Review</h1><p>這場打得不太好，第四題為圖論一筆畫問題確實不會寫之外，在前三題的解題過程中都有藏有許多瑕疵需要好好反省</p><p><img src="/images/LeetcodeIcon.png"></p><hr><h2 id="Q1-LC-2094-Finding-3-Digit-Even-Numbers"><a href="#Q1-LC-2094-Finding-3-Digit-Even-Numbers" class="headerlink" title="Q1: LC-2094. Finding 3-Digit Even Numbers"></a>Q1: LC-2094. Finding 3-Digit Even Numbers</h2><p>第一題正常來說都要秒解，但這題我不但TLE一次還寫了十分鐘。題目是從pool中任挑三個數字排成一排，並由小到大輸出所有不重複的狀況。</p><p>我的程式簡單來說就是把pool跑permutation並只做前三項，第一版繳交時是在6分鐘的時候，程式碼基本上都寫對，也有在idx=3的時候輸出答案，<strong>但是程式碼內竟然沒有在idx=3的時候return</strong>，導致繼續作idx&gt;3的部分，最終TLE，最後找bug並做了一些其實不用的優化，花了10分鐘加上TLE才修正。</p><hr><h2 id="Q2-LC-2095-Delete-the-Middle-Node-of-a-Linked-List"><a href="#Q2-LC-2095-Delete-the-Middle-Node-of-a-Linked-List" class="headerlink" title="Q2: LC-2095. Delete the Middle Node of a Linked List"></a>Q2: LC-2095. Delete the Middle Node of a Linked List</h2><p>從LinkedList中找到特定節點並刪除，這題我覺得寫得還算快，僅花費4分鐘。</p><hr><h2 id="Q3-LC-2096-Step-By-Step-Directions-From-a-Binary-Tree-Node-to-Another"><a href="#Q3-LC-2096-Step-By-Step-Directions-From-a-Binary-Tree-Node-to-Another" class="headerlink" title="Q3: LC-2096. Step-By-Step Directions From a Binary Tree Node to Another"></a>Q3: LC-2096. Step-By-Step Directions From a Binary Tree Node to Another</h2><p>這題我覺得程式碼寫得很冗，題目希望從一棵樹中，輸出從某個點到另一個點的最短路徑。</p><p>這題程式碼的部分特別難看，一堆if區塊，非常瑣碎，導致寫了整整12分鐘。</p><p>有看到一種做法，像這種只給樹根的二元樹，而且又不是從樹根為起點，<strong>可以將整棵樹轉換為adjacent matrix</strong>，之後便能透過adj直接從指定起點往外移動。</p><hr><h2 id="Q4-LC-2097-Valid-Arrangement-of-Pairs"><a href="#Q4-LC-2097-Valid-Arrangement-of-Pairs" class="headerlink" title="Q4: LC-2097. Valid Arrangement of Pairs"></a>Q4: LC-2097. Valid Arrangement of Pairs</h2><p>這題可說是一筆畫問題的模板題，一筆畫問題是一個圖論經典問題，沒看過算是我不學無術。</p><p>值得一提的是，其實我在想得過程中是有點接近正確答案的，當時在思考要如何把某另一條路徑插在目前的路徑上。</p><p>仔細想想，這就是divide and conquer或是stack的思想。不馬上輸出目前的答案，先把另一條路徑走完並輸出後再把其他的也補上。</p><hr><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>26分鐘寫3題，加上1次TLE：總名次436/12931</p><ul><li>不要求程式碼逐行檢查，但是判停條件的位置最好再看一下</li><li>有些二元樹的題目可以轉換成adjacent matrix會更容易寫</li><li>Euler Path&amp;Circle以及Hierholzer’s Algorithm需要自己去念書</li></ul>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/LeetcodeIcon.png"></p><h2 id="Leetcode-Weekly-Contest-270-Review"><a href="#Leetcode-Weekly-Contest-270-Review" class="headerlink" title="Leetcode Weekly Contest 270 Review"></a>Leetcode Weekly Contest 270 Review</h2><p>這場打得不太好，除了第四題為<strong>圖論的一筆畫問題</strong>確實不會之外，在前三題的解題過程中都有藏有許多瑕疵需要好好反省</p><h3 id="Q1-LC-2094-Finding-3-Digit-Even-Numbers"><a href="#Q1-LC-2094-Finding-3-Digit-Even-Numbers" class="headerlink" title="Q1: LC-2094. Finding 3-Digit Even Numbers"></a>Q1: LC-2094. Finding 3-Digit Even Numbers</h3><p>第一題正常來說都要秒解，但這題我不但TLE一次還寫了十分鐘。題目是從pool中任挑三個數字排成一排，並由小到大輸出所有不重複的狀況。</p><p>我的程式簡單來說就是把pool跑permutation並只做前三項，第一版繳交時是在6分鐘的時候，程式碼基本上都寫對，也有在idx=3的時候輸出答案，<strong>但是程式碼內竟然沒有在idx=3的時候return</strong>，導致繼續作idx&gt;3的部分，最終TLE，最後找bug並做了一些其實不用的優化，花了10分鐘加上TLE才修正。</p><h3 id="Q2-LC-2095-Delete-the-Middle-Node-of-a-Linked-List"><a href="#Q2-LC-2095-Delete-the-Middle-Node-of-a-Linked-List" class="headerlink" title="Q2: LC-2095. Delete the Middle Node of a Linked List"></a>Q2: LC-2095. Delete the Middle Node of a Linked List</h3><p>從LinkedList中找到特定節點並刪除，這題我覺得寫得還算快，僅花費4分鐘。</p><h3 id="Q3-LC-2096-Step-By-Step-Directions-From-a-Binary-Tree-Node-to-Another"><a href="#Q3-LC-2096-Step-By-Step-Directions-From-a-Binary-Tree-Node-to-Another" class="headerlink" title="Q3: LC-2096. Step-By-Step Directions From a Binary Tree Node to Another"></a>Q3: LC-2096. Step-By-Step Directions From a Binary Tree Node to Another</h3><p>這題我覺得程式碼寫得很冗，題目希望從一棵樹中，輸出從某個點到另一個點的最短路徑。</p><p>這題程式碼的部分特別難看，一堆if區塊，非常瑣碎，導致寫了整整12分鐘。</p><p>有看到一種做法，像這種只給樹根的二元樹，而且又不是從樹根為起點，<strong>可以將整棵樹轉換為adjacent matrix</strong>，之後便能透過adj直接從指定起點往外移動。</p><h3 id="Q4-LC-2097-Valid-Arrangement-of-Pairs"><a href="#Q4-LC-2097-Valid-Arrangement-of-Pairs" class="headerlink" title="Q4: LC-2097. Valid Arrangement of Pairs"></a>Q4: LC-2097. Valid Arrangement of Pairs</h3><p>這題可說是一筆畫問題的模板題，一筆畫問題是一個圖論經典問題，沒看過算是我不學無術。</p><p>值得一提的是，其實我在想得過程中是有點接近正確答案的，當時在思考要如何把某另一條路徑插在目前的路徑上。</p><p>仔細想想，這就是divide and conquer或是stack的思想。不馬上輸出目前的答案，先把另一條路徑走完並輸出後再把其他的也補上。</p><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>沒能完賽，26分鐘寫3題，加上1次TLE：總名次436/12931</p><hr><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul><li>不要求程式碼逐行檢查，但是判停條件的位置最好再看一下</li><li>有些二元樹的題目可以轉換成adjacent matrix會更容易寫</li><li>Euler Path&amp;Circle以及Hierholzer’s Algorithm需要自己去念書</li></ul>]]></content>
       
       
       <categories>
@@ -106,6 +106,35 @@
         <tags>
             
             <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode Contest Review - Biweekly 66 &amp; Weekly 269</title>
+      <link href="/2021/11/29/Leetcode-Contest-Review-Biweekly66-Weekly269/"/>
+      <url>/2021/11/29/Leetcode-Contest-Review-Biweekly66-Weekly269/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/LeetcodeIcon.png"></p><h2 id="Leetcode-Biweekly-Contest-66-Review"><a href="#Leetcode-Biweekly-Contest-66-Review" class="headerlink" title="Leetcode Biweekly Contest 66 Review"></a>Leetcode Biweekly Contest 66 Review</h2><h3 id="Q1-LC-2085-Count-Common-Words-With-One-Occurrence"><a href="#Q1-LC-2085-Count-Common-Words-With-One-Occurrence" class="headerlink" title="Q1: LC-2085. Count Common Words With One Occurrence"></a>Q1: LC-2085. Count Common Words With One Occurrence</h3><p>簡單查數量的題目，比typing的速度而已</p><h3 id="Q2-LC-2086-Minimum-Number-of-Buckets-Required-to-Collect-Rainwater-from-Houses"><a href="#Q2-LC-2086-Minimum-Number-of-Buckets-Required-to-Collect-Rainwater-from-Houses" class="headerlink" title="Q2: LC-2086. Minimum Number of Buckets Required to Collect Rainwater from Houses"></a>Q2: LC-2086. Minimum Number of Buckets Required to Collect Rainwater from Houses</h3><p>明顯是greedy的題目，但實作時有點卡住，沒有理好要以房子為單位搜尋還是以空地為單位搜尋，多花了幾分鐘。</p><h3 id="Q3-LC-2087-Minimum-Cost-Homecoming-of-a-Robot-in-a-Grid"><a href="#Q3-LC-2087-Minimum-Cost-Homecoming-of-a-Robot-in-a-Grid" class="headerlink" title="Q3: LC-2087. Minimum Cost Homecoming of a Robot in a Grid"></a>Q3: LC-2087. Minimum Cost Homecoming of a Robot in a Grid</h3><p>只要看到最短距離，就腦殘想用Dijkstra，反而沒意識到這題所有的最短路徑都是最短距離，隨便挑一條greedy計算就可以了。時間浪費在實作dijkstra外加一個TLE</p><h3 id="Q4-LC-2088-Count-Fertile-Pyramids-in-a-Land"><a href="#Q4-LC-2088-Count-Fertile-Pyramids-in-a-Land" class="headerlink" title="Q4: LC-2088. Count Fertile Pyramids in a Land"></a>Q4: LC-2088. Count Fertile Pyramids in a Land</h3><p>明顯是DP問題，我的解法重複又冗長的程式碼太多，這部分應該包成function或是翻轉測資就好。</p><p>另外我解這種稍微複雜的題目，常常階段性的寫程式碼，例如這題我先寫一段程式，對每個點都找到往左及往右可以抵達的距離，但當下並沒有確定好下一步該做什麼，只是覺得這樣做有幫助，事後也確實是有幫助，並以此為基礎完成這題。值得反省的是，<strong>如果這麼做沒幫助的話，是否不但浪費時間，又限縮了自己後續思考問題的方式</strong>。</p><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>40分鐘完賽加上1次TLE：總名次160/8620</p><hr><h2 id="Leetcode-Weekly-Contest-269-Review"><a href="#Leetcode-Weekly-Contest-269-Review" class="headerlink" title="Leetcode Weekly Contest 269 Review"></a>Leetcode Weekly Contest 269 Review</h2><h3 id="Q1-LC-2089-Find-Target-Indices-After-Sorting-Array"><a href="#Q1-LC-2089-Find-Target-Indices-After-Sorting-Array" class="headerlink" title="Q1: LC-2089. Find Target Indices After Sorting Array"></a>Q1: LC-2089. Find Target Indices After Sorting Array</h3><p>比打字速度的題目</p><h3 id="Q2-LC-2090-K-Radius-Subarray-Averages"><a href="#Q2-LC-2090-K-Radius-Subarray-Averages" class="headerlink" title="Q2: LC-2090. K Radius Subarray Averages"></a>Q2: LC-2090. K Radius Subarray Averages</h3><p>固定遮罩的總合問題，也是看到就知道怎麼做。值得檢討的是我<strong>題目常常看一半就開始作答</strong>，做到一半的時候發覺欠缺了一些資訊才回去敘述中找，以本例來說我寫到一半才回去找遮罩寬度的定義以及輸出要落在什麼位置，算是蠻不好的習慣，另外也是同一個原因，一些需要事先定義的變數在寫的過程才一直補上，導致程式碼前幾行看起來沒有章法又混亂。</p><h3 id="Q3-LC-2091-Removing-Minimum-and-Maximum-From-Array"><a href="#Q3-LC-2091-Removing-Minimum-and-Maximum-From-Array" class="headerlink" title="Q3: LC-2091. Removing Minimum and Maximum From Array"></a>Q3: LC-2091. Removing Minimum and Maximum From Array</h3><p>我覺得這題寫得還不錯，只是有些程式碼看起來可以合併成一行才不會顯得有點冗，這場到寫完第三題共花7分鐘。</p><h3 id="Q4-LC-2092-Find-All-People-With-Secret"><a href="#Q4-LC-2092-Find-All-People-With-Secret" class="headerlink" title="Q4: LC-2092. Find All People With Secret"></a>Q4: LC-2092. Find All People With Secret</h3><p>明顯是依照時間處理DSU的問題。只要是時間順序的題目，都要記得「<strong>確認同一個時間內是否可能有多筆事件</strong>」，第一版繳交的答案就是沒意識到這件事情導致WA。為了處理同一時間產生的事件，需要在這個時間點分群以及判斷哪些群該被納入答案中，但我第二版沒處理好分群問題，浪費時間寫了一個現在看來不可思議的答案，當時直到寫完測試才發現問題，最後第三版才改對。因此單單這題花了27分鐘外加一個WA，大把時間浪費在解bug以及莫名其妙的錯誤，明顯也是沒想清楚就開始寫題目的壞習慣導致。</p><h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p>34分鐘完賽加上1次WA：總名次: 215/10907</p><hr><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul><li>題目及測資範圍都看完再作答 (cirtical)</li><li>做後續步驟前最好再問自己一遍真的想清楚了嗎 (cirtical)<ul><li>包含確認是否有必要先寫中間步驟的程式碼</li></ul></li><li>競速心態要調整，最好把時間都遮起來</li><li>時間序的題目要注意重複時間問題</li><li>冗長又重複的程式碼該包成function</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Competitive Programming </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Competitive Programming </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Leetcode Contest </tag>
             
         </tags>
       
