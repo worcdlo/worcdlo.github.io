@@ -117,5 +117,5 @@ theme: hexo-theme-matery
 deploy:
   type: git
   repo: https://github.com/worcdlo/worcdlo.github.io.git
-  branch: hexo_test
+  branch: hexo_demo
   ignore_hidden: false
