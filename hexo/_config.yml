@@ -119,3 +119,10 @@ deploy:
   repo: https://github.com/worcdlo/worcdlo.github.io.git
   branch: hexo_demo
   ignore_hidden: false
+
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    # src: custom_mathjax_source
+    config:
+      # MathJax config
