@@ -3,7 +3,7 @@ title: Eulerian Circuit and Path
 date: 2021-12-07 15:48:00
 author: Aaron
 img: /images/euler_circuit.png
-top: true 
+top: false
 cover: true 
 toc: true
 summary: Detailed explanation of Eulerian circuit and path

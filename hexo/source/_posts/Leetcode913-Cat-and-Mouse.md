@@ -2,7 +2,6 @@
 title: Leetcode 913. Cat and Mouse
 date: 2021-12-09 10:55:23
 author: Aaron Yan
-top: true 
 cover: true 
 toc: true
 mathjax: true

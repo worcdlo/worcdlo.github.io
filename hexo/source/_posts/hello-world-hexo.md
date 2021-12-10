@@ -3,7 +3,7 @@ title: Hello Hexo
 date: 2021-12-07 02:25:00
 author: Aaron
 img: /images/hexo_logo.jpg 
-top: true 
+top: false
 cover: true 
 coverImg: /images/hexo_logo.jpg 
 password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 
