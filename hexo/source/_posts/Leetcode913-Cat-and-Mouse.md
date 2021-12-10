@@ -5,7 +5,7 @@ author: Aaron Yan
 cover: true 
 toc: true
 mathjax: true
-summary: Detailed explanation of Eulerian circuit and path
+summary: Whether the cat can catch the mouse? Stay tuned to find out!
 categories: 
   - Dynamic Programming
 tags: 
