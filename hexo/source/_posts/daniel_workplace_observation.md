@@ -1,7 +1,6 @@
 ---
 title: 【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？
 date: 2021-12-10 23:48:00
-top: true 
 cover: true 
 toc: true
 summary: 「語言」、「溝通」、「理工」、「管理」、「謙遜」、「強勢」、「混亂」、「彈性」，便形成了他們在職場上難以取代的的組合技
