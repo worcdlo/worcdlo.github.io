@@ -403,30 +403,31 @@
             <div id="articleContent">
                 <h1 id="Persistent-Segment-Tree"><a href="#Persistent-Segment-Tree" class="headerlink" title="Persistent Segment Tree"></a>Persistent Segment Tree</h1><p>中文名為<strong>可持久化線段樹</strong>，也被稱為<strong>主席樹</strong></p>
 <h2 id="Persistent-Data-Structure"><a href="#Persistent-Data-Structure" class="headerlink" title="Persistent Data Structure"></a>Persistent Data Structure</h2><p>可持久化資料結構（Persistent data structure）是一種能夠在修改之後其保留歷史版本（即可以在保留原來數據的基礎上進行修改——比如增添、刪除、賦值）的資料結構。這種資料結構實際上是不可變對象，<strong>因為相關操作不會直接修改被保存的數據，而是會在原版本上產生一個新分支</strong>。</p>
-<h2 id="Persistent-Segment-Tree-1"><a href="#Persistent-Segment-Tree-1" class="headerlink" title="Persistent Segment Tree"></a>Persistent Segment Tree</h2><p>常見的使用情境像是從區間<code>nums[l:r]</code>中取k-th大的數值。</p>
-<p>本文假設讀者已知從一個固定的線段樹中取出第k-th大的數值。若我們對nums中的每個前綴陣列都有一棵segment tree，如下圖：</p>
+<h2 id="Persistent-Segment-Tree-1"><a href="#Persistent-Segment-Tree-1" class="headerlink" title="Persistent Segment Tree"></a>Persistent Segment Tree</h2><blockquote>
+<p>常見的使用情境像是從區間<code>nums[l:r]</code>中取k-th小的數值。</p>
+</blockquote>
+<p>本文假設讀者已知從一個固定的線段樹中取出第k-th小的數值。若我們對nums中的每個前綴陣列都有一棵segment tree，如下圖：</p>
 <pre class=" language-js"><code class="language-js"><span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> where idx <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">~</span> n
 </code></pre>
 <p>則對任意子陣列nums[l:r]，便能透過差分的概念組出該子陣列的segment tree，例如</p>
 <pre class=" language-js"><code class="language-js"><span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">:</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>l<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
 <blockquote>
-<p>如果要找[l,r]的統計信息，只要用[0,r]減去[0,l-1]的統計信息即可</p>
+<p>要找[l,r]的統計信息，只要用[0,r]減去[0,l-1]的統計信息即可</p>
 </blockquote>
 <h3 id="Space-Optimization"><a href="#Space-Optimization" class="headerlink" title="Space Optimization"></a>Space Optimization</h3><p>但如果我們針對每個前綴都建一棵獨立的線段樹，顯然成本過高，但我們能發現，每次在線段樹中多插入一個數值，只會有log(n)的節點被修改。</p>
-<p>下圖是一個統計區間1~6每個數字數量的segment tree，原本沒有任何數字，若依序放入數字4(藍),3(橘)和2(紫)，各自造成若干節點的改變。</p>
+<blockquote>
+<p>實際上我們每多建立一棵樹，只要新增被修改的節點就好，其餘的部分可接上原本就存在的節點。</p>
+</blockquote>
+<p>下圖是一個統計1~6中，每個數字數量的segment tree，可看到初始的樹(黑)沒有任何數字，若依序放入數字4(藍),3(橘)和2(紫)，各自造成若干節點的改變，並形成四棵線段樹。</p>
 <img src="/images/persistent_seg_tree/tree2.png" width="75%" height="75%">
 
-<blockquote>
-<p>Vertices that are not affected by the modification query can still be used by pointing the pointers to the old vertices.</p>
-</blockquote>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p>假設nums有n個不同數值，將所有數值依照大小mapping到1~n，並建一個初始全為0的segment tree共有<code>2n-1</code>個節點</p>
-<p>依序插入每個mapping後的數值，每次插入有<code>log_2(n)</code>個節點被更新</p>
+<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p>建立所有線段樹，假設nums有n個數值，將所有數值依照大小<code>離散化</code>，並建一個初始全為0的segment tree，此時應有<code>2n-1</code>個節點，接著依序插入離散化後的數值，每次插入有<code>log(n)</code>個節點被更新</p>
 <ul>
 <li>Space Complexity: <code>O(n*log(n))</code></li>
 <li>Time Complexity: <ul>
+<li>build seg trees: <code>O(n*log(n))</code></li>
 <li>query: <code>O(log(n))</code></li>
-<li>build: <code>O(n*log(n))</code></li>
 </ul>
 </li>
 </ul>
@@ -459,11 +460,11 @@
             <span class="token keyword">return</span> node
         mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
         <span class="token keyword">if</span> val <span class="token operator">&lt;=</span> mid<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 往左邊更新，右邊節點接上舊的節點</span>
+            <span class="token comment" spellcheck="true"># 往左邊更新，右子樹接上舊的節點</span>
             node<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>_update<span class="token punctuation">(</span>prenode<span class="token punctuation">.</span>left<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
             node<span class="token punctuation">.</span>right <span class="token operator">=</span> prenode<span class="token punctuation">.</span>right
         <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 往右更新，左邊節點接上舊的節點</span>
+            <span class="token comment" spellcheck="true"># 往右更新，左子樹接上舊的節點</span>
             node<span class="token punctuation">.</span>left <span class="token operator">=</span> prenode<span class="token punctuation">.</span>left
             node<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>_update<span class="token punctuation">(</span>prenode<span class="token punctuation">.</span>right<span class="token punctuation">,</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
         <span class="token keyword">return</span> node
@@ -483,7 +484,7 @@
             <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>node1<span class="token punctuation">.</span>left<span class="token punctuation">,</span> node2<span class="token punctuation">.</span>left<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>node1<span class="token punctuation">.</span>right<span class="token punctuation">,</span> node2<span class="token punctuation">.</span>right<span class="token punctuation">,</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> k <span class="token operator">-</span> left_cnt<span class="token punctuation">)</span>
-        
+
     <span class="token keyword">def</span> <span class="token function">get_kth</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx1<span class="token punctuation">,</span> idx2<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>self<span class="token punctuation">.</span>versions<span class="token punctuation">[</span>idx1<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>versions<span class="token punctuation">[</span>idx2 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>minval<span class="token punctuation">,</span> self<span class="token punctuation">.</span>maxval<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
 </code></pre>
