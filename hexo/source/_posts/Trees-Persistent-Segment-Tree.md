@@ -26,9 +26,9 @@ tags:
 
 ## Persistent Segment Tree
 
-常見的使用情境像是從區間`nums[l:r]`中取k-th大的數值。
+> 常見的使用情境像是從區間`nums[l:r]`中取k-th小的數值。
 
-本文假設讀者已知從一個固定的線段樹中取出第k-th大的數值。若我們對nums中的每個前綴陣列都有一棵segment tree，如下圖：
+本文假設讀者已知從一個固定的線段樹中取出第k-th小的數值。若我們對nums中的每個前綴陣列都有一棵segment tree，如下圖：
 ```js
 seg_tree(nums[:idx]), where idx = 1 ~ n
 ```
@@ -37,28 +37,27 @@ seg_tree(nums[:idx]), where idx = 1 ~ n
 ```js
 seg_tree(nums[l:r]) = seg_tree(nums[:r]) - seg_tree(nums[:l-1])
 ```
-> 如果要找[l,r]的統計信息，只要用[0,r]減去[0,l-1]的統計信息即可
+
+> 要找[l,r]的統計信息，只要用[0,r]減去[0,l-1]的統計信息即可
 
 ### Space Optimization
 
 但如果我們針對每個前綴都建一棵獨立的線段樹，顯然成本過高，但我們能發現，每次在線段樹中多插入一個數值，只會有log(n)的節點被修改。
 
-下圖是一個統計區間1~6每個數字數量的segment tree，原本沒有任何數字，若依序放入數字4(藍),3(橘)和2(紫)，各自造成若干節點的改變。
+> 實際上我們每多建立一棵樹，只要新增被修改的節點就好，其餘的部分可接上原本就存在的節點。
+
+下圖是一個統計1~6中，每個數字數量的segment tree，可看到初始的樹(黑)沒有任何數字，若依序放入數字4(藍),3(橘)和2(紫)，各自造成若干節點的改變，並形成四棵線段樹。
 
 <img src="/images/persistent_seg_tree/tree2.png" width="75%" height="75%">
 
-> Vertices that are not affected by the modification query can still be used by pointing the pointers to the old vertices.
-
 ### Complexity
 
-假設nums有n個不同數值，將所有數值依照大小mapping到1~n，並建一個初始全為0的segment tree共有`2n-1`個節點
-
-依序插入每個mapping後的數值，每次插入有`log_2(n)`個節點被更新
+建立所有線段樹，假設nums有n個數值，將所有數值依照大小`離散化`，並建一個初始全為0的segment tree，此時應有`2n-1`個節點，接著依序插入離散化後的數值，每次插入有`log(n)`個節點被更新
 
 - Space Complexity: `O(n*log(n))`
 - Time Complexity: 
+  - build seg trees: `O(n*log(n))`
   - query: `O(log(n))`
-  - build: `O(n*log(n))`
 
 
 ### 程式碼
@@ -93,11 +92,11 @@ class PerSegTree:
             return node
         mid = (l + r) // 2
         if val <= mid:
-            # 往左邊更新，右邊節點接上舊的節點
+            # 往左邊更新，右子樹接上舊的節點
             node.left = self._update(prenode.left, l, mid, val)
             node.right = prenode.right
         else:
-            # 往右更新，左邊節點接上舊的節點
+            # 往右更新，左子樹接上舊的節點
             node.left = prenode.left
             node.right = self._update(prenode.right, mid+1, r, val)
         return node
@@ -117,7 +116,7 @@ class PerSegTree:
             return self._get_kth(node1.left, node2.left, l, mid, k)
         else:
             return self._get_kth(node1.right, node2.right, mid+1, r, k - left_cnt)
-        
+
     def get_kth(self, idx1, idx2, k):
         return self._get_kth(self.versions[idx1], self.versions[idx2 + 1], self.minval, self.maxval, k)
 ```
@@ -130,3 +129,4 @@ class PerSegTree:
 - [主席树（可持久化权值线段树）](https://blog.csdn.net/hzerotole/article/details/109633562)
 - [CP-Algorihms: Persistent Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html#toc-tgt-12)
 - [Wiki: Persistent data structure](https://en.wikipedia.org/wiki/Persistent_data_structure)
+
