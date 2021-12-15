@@ -407,8 +407,8 @@
 <blockquote>
 <p>初始化會將所有節點的parent都指到結點自己</p>
 <ul>
-<li>Find(node): 沿著parent找到node的root</li>
-<li>Union(node1, node2)，連接包含node1的樹以及包含node2的樹<ul>
+<li><strong>Find(node)</strong>: 沿著parent找到node的root</li>
+<li><strong>Union(node1, node2)</strong>: 連接包含node1的樹以及包含node2的樹<ul>
 <li>具體作法是先各自找到root1以及root2</li>
 <li>再將兩棵樹接起來，接起來的方式就是將其中一個root的parent指到另一個</li>
 </ul>
@@ -424,7 +424,7 @@
 <blockquote>
 <p>This simple modification of the operation already achieves the time complexity <strong><code>O(logn)</code> per call</strong> on average</p>
 </blockquote>
-<h3 id="Union-by-Rank-Size"><a href="#Union-by-Rank-Size" class="headerlink" title="Union by Rank / Size"></a>Union by Rank / Size</h3><p>Union的操作是在兩棵樹中，將其中一個樹的根結點的parent指向另一個樹的根節點。此時我們應該要考量，哪一顆樹作為兩顆樹的根結點是更為合適的？</p>
+<h3 id="Union-by-Rank-Size"><a href="#Union-by-Rank-Size" class="headerlink" title="Union by Rank / Size"></a>Union by Rank / Size</h3><p>Union的操作是在兩棵樹中，將其中一個樹的根結點的parent指向另一個樹的根節點。此時我們應該要考量，哪一個根結點作為兩顆樹合併後的根結點是更為合適的？</p>
 <p>基於不同考量，一般有兩種合併樹的方式：</p>
 <ul>
 <li><font color="LightSalmon" size=5><strong>Union by Rank</strong></font>：我們希望<strong>最大深度</strong>在合併之後的變化越少越好，明顯的我們將深度比較小的樹指到深度深的。這樣在最糟情況下，最大深度頂多比原本的多1而已<br><img src="/images/dsu/dsu4.png" alt="Union by Rank"></li>
