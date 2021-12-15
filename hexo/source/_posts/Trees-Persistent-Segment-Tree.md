@@ -129,4 +129,20 @@ class PerSegTree:
 - [主席树（可持久化权值线段树）](https://blog.csdn.net/hzerotole/article/details/109633562)
 - [CP-Algorihms: Persistent Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html#toc-tgt-12)
 - [Wiki: Persistent data structure](https://en.wikipedia.org/wiki/Persistent_data_structure)
+- [「BZOJ 3673」可持久化并查集 - 可持久化线段树](https://oi.men.ci/bzoj-3673/)
 
+
+## 題目
+- [D-Query](https://www.spoj.com/problems/DQUERY/)
+  - 求区间内不重复的数的个数。扫描数列建立可持久化线段树，第i个数若第一次出现，则在线段树中的位置i加1
+  - 若不是第一次出现，将上次出现的位置减1，在本次位置加1
+  - 对于每个询问的区间 [L,R]，在第R个版本上的线段树只有前R个数，在线段树上查询位置L，对经过的区间中的和进行累计即可
+- POJ 2104 K-th Number
+- [P2048 [NOI2010] 超级钢琴](https://www.luogu.com.cn/problem/P2048)
+  - 给一个长度为n的序列{a_i}，定义一个区间`[l, r]`的价值为这个区间中数的总和，求区间长度在`[L, R]`之间的所有区间中，价值最大的k个区间的价值总和。
+    - 將每個左邊界i，在滿足長度下，挑出價值最大的區間`[i, r_i]`放入heap中
+    - 從heap中pop價值最大的區間`[idx, r_idx]`
+    - 並重新挑選出對idx而言滿足條件，**且不重複挑選下**，價值最大的區間`[idx, r2_idx]`再放入heap中
+- [P3919 【模板】可持久化线段树 1（可持久化数组）](https://www.luogu.com.cn/problem/P3919)
+- BZOJ 3673: 可持久化并查集 - 可持久化线段树
+- 
