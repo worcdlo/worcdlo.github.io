@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Persistent Segment Tree, AKAARTOEN">
-    <meta name="description" content="Detailed explanation of Persistent Segment Tree">
+    <meta name="keywords" content="2021 年「資訊科技產業專案設計」課程：公司面試的應對, AKAARTOEN">
+    <meta name="description" content="找工作絕非只是投履歷，而是場博弈 -- 面試本身是交易">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Persistent Segment Tree | AKAARTOEN</title>
+    <title>2021 年「資訊科技產業專案設計」課程：公司面試的應對 | AKAARTOEN</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/persistent_seg_tree/tree1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Persistent Segment Tree</h1>
+                    <h1 class="description center-align post-title">2021 年「資訊科技產業專案設計」課程：公司面試的應對</h1>
                 </div>
             </div>
         </div>
@@ -347,16 +347,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Persistent-Segment-Tree/">
-                                <span class="chip bg-color">Persistent Segment Tree</span>
-                            </a>
-                        
-                            <a href="/tags/Segment-Tree/">
-                                <span class="chip bg-color">Segment Tree</span>
-                            </a>
-                        
-                            <a href="/tags/DSA-Tutorial-Persistent-Data-Structure/">
-                                <span class="chip bg-color">DSA Tutorial Persistent Data Structure</span>
+                            <a href="/tags/Interview/">
+                                <span class="chip bg-color">Interview</span>
                             </a>
                         
                     </div>
@@ -367,8 +359,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Data-Structure/" class="post-category">
-                                Data Structure
+                            <a href="/categories/Interview/" class="post-category">
+                                Interview
                             </a>
                         
                     </div>
@@ -380,7 +372,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-13
+                    2021-12-14
                 </div>
                 
 
@@ -401,121 +393,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Persistent-Segment-Tree"><a href="#Persistent-Segment-Tree" class="headerlink" title="Persistent Segment Tree"></a>Persistent Segment Tree</h1><p>中文名為<strong>可持久化線段樹</strong>，也被稱為<strong>主席樹</strong></p>
-<h2 id="Persistent-Data-Structure"><a href="#Persistent-Data-Structure" class="headerlink" title="Persistent Data Structure"></a>Persistent Data Structure</h2><p>可持久化資料結構（Persistent data structure）是一種能夠在修改之後其保留歷史版本（即可以在保留原來數據的基礎上進行修改——比如增添、刪除、賦值）的資料結構。這種資料結構實際上是不可變對象，<strong>因為相關操作不會直接修改被保存的數據，而是會在原版本上產生一個新分支</strong>。</p>
-<h2 id="Persistent-Segment-Tree-1"><a href="#Persistent-Segment-Tree-1" class="headerlink" title="Persistent Segment Tree"></a>Persistent Segment Tree</h2><blockquote>
-<p>常見的使用情境像是從區間<code>nums[l:r]</code>中取k-th小的數值。</p>
+                <blockquote>
+<p>內容待整理</p>
 </blockquote>
-<p>本文假設讀者已知從一個固定的線段樹中取出第k-th小的數值。若我們對nums中的每個前綴陣列都有一棵segment tree，如下圖：</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> where idx <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">~</span> n
-</code></pre>
-<p>則對任意子陣列nums[l:r]，便能透過差分的概念組出該子陣列的segment tree，例如</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">:</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">seg_tree</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>l<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<blockquote>
-<p>要找[l,r]的統計信息，只要用[0,r]減去[0,l-1]的統計信息即可</p>
-</blockquote>
-<h3 id="Space-Optimization"><a href="#Space-Optimization" class="headerlink" title="Space Optimization"></a>Space Optimization</h3><p>但如果我們針對每個前綴都建一棵獨立的線段樹，顯然成本過高，但我們能發現，每次在線段樹中多插入一個數值，只會有log(n)的節點被修改。</p>
-<blockquote>
-<p>實際上我們每多建立一棵樹，只要新增被修改的節點就好，其餘的部分可接上原本就存在的節點。</p>
-</blockquote>
-<p>下圖是一個統計1~6中，每個數字數量的segment tree，可看到初始的樹(黑)沒有任何數字，若依序放入數字4(藍),3(橘)和2(紫)，各自造成若干節點的改變，並形成四棵線段樹。</p>
-<img src="/images/persistent_seg_tree/tree2.png" width="75%" height="75%">
-
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p>建立所有線段樹，假設nums有n個數值，將所有數值依照大小<code>離散化</code>，並建一個初始全為0的segment tree，此時應有<code>2n-1</code>個節點，接著依序插入離散化後的數值，每次插入有<code>log(n)</code>個節點被更新</p>
-<ul>
-<li>Space Complexity: <code>O(n*log(n))</code></li>
-<li>Time Complexity: <ul>
-<li>build seg trees: <code>O(n*log(n))</code></li>
-<li>query: <code>O(log(n))</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cnt<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>cnt <span class="token operator">=</span> cnt
-        self<span class="token punctuation">.</span>left <span class="token operator">=</span> None
-        self<span class="token punctuation">.</span>right <span class="token operator">=</span> None
-
-<span class="token keyword">class</span> <span class="token class-name">PerSegTree</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> minval<span class="token punctuation">,</span> maxval<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""Persistent Segment Tree"""</span>
-        self<span class="token punctuation">.</span>minval <span class="token operator">=</span> minval
-        self<span class="token punctuation">.</span>maxval <span class="token operator">=</span> maxval
-        self<span class="token punctuation">.</span>versions <span class="token operator">=</span> <span class="token punctuation">[</span>self<span class="token punctuation">.</span>build<span class="token punctuation">(</span>self<span class="token punctuation">.</span>minval<span class="token punctuation">,</span> self<span class="token punctuation">.</span>maxval<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># versions of tree</span>
-        
-    <span class="token keyword">def</span> <span class="token function">build</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        node <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> l <span class="token operator">==</span> r<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> node
-        mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
-        node<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>build<span class="token punctuation">(</span>l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span>
-        node<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>build<span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> node
-    
-    <span class="token keyword">def</span> <span class="token function">_update</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prenode<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 受到影響的節點，創立新的node</span>
-        node <span class="token operator">=</span> Node<span class="token punctuation">(</span>prenode<span class="token punctuation">.</span>cnt <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> l <span class="token operator">==</span> r<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> node
-        mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
-        <span class="token keyword">if</span> val <span class="token operator">&lt;=</span> mid<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 往左邊更新，右子樹接上舊的節點</span>
-            node<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>_update<span class="token punctuation">(</span>prenode<span class="token punctuation">.</span>left<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
-            node<span class="token punctuation">.</span>right <span class="token operator">=</span> prenode<span class="token punctuation">.</span>right
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 往右更新，左子樹接上舊的節點</span>
-            node<span class="token punctuation">.</span>left <span class="token operator">=</span> prenode<span class="token punctuation">.</span>left
-            node<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>_update<span class="token punctuation">(</span>prenode<span class="token punctuation">.</span>right<span class="token punctuation">,</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> node
-
-    <span class="token keyword">def</span> <span class="token function">update</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        prenode <span class="token operator">=</span> self<span class="token punctuation">.</span>versions<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>versions<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>_update<span class="token punctuation">(</span>prenode<span class="token punctuation">,</span> self<span class="token punctuation">.</span>minval<span class="token punctuation">,</span> self<span class="token punctuation">.</span>maxval<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">_get_kth</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> node1<span class="token punctuation">,</span> node2<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> l <span class="token operator">==</span> r<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> l
-        mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
-
-        <span class="token comment" spellcheck="true"># 差分，計算versions[v1:v2]在左子區間中有多少數量</span>
-        left_cnt <span class="token operator">=</span> node2<span class="token punctuation">.</span>left<span class="token punctuation">.</span>cnt <span class="token operator">-</span> node1<span class="token punctuation">.</span>left<span class="token punctuation">.</span>cnt
-        <span class="token keyword">if</span> k <span class="token operator">&lt;=</span> left_cnt<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>node1<span class="token punctuation">.</span>left<span class="token punctuation">,</span> node2<span class="token punctuation">.</span>left<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>node1<span class="token punctuation">.</span>right<span class="token punctuation">,</span> node2<span class="token punctuation">.</span>right<span class="token punctuation">,</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> k <span class="token operator">-</span> left_cnt<span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">get_kth</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx1<span class="token punctuation">,</span> idx2<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_get_kth<span class="token punctuation">(</span>self<span class="token punctuation">.</span>versions<span class="token punctuation">[</span>idx1<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>versions<span class="token punctuation">[</span>idx2 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>minval<span class="token punctuation">,</span> self<span class="token punctuation">.</span>maxval<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/persistent-seg/">Oi-Wiki: 可持久化線段樹</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hzerotole/article/details/109633562">主席树（可持久化权值线段树）</a></li>
-<li><a target="_blank" rel="noopener" href="https://cp-algorithms.com/data_structures/segment_tree.html#toc-tgt-12">CP-Algorihms: Persistent Segment Tree</a></li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Persistent_data_structure">Wiki: Persistent data structure</a></li>
-<li><a target="_blank" rel="noopener" href="https://oi.men.ci/bzoj-3673/">「BZOJ 3673」可持久化并查集 - 可持久化线段树</a></li>
-</ul>
-<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.spoj.com/problems/DQUERY/">D-Query</a><ul>
-<li>求区间内不重复的数的个数。扫描数列建立可持久化线段树，第i个数若第一次出现，则在线段树中的位置i加1</li>
-<li>若不是第一次出现，将上次出现的位置减1，在本次位置加1</li>
-<li>对于每个询问的区间 [L,R]，在第R个版本上的线段树只有前R个数，在线段树上查询位置L，对经过的区间中的和进行累计即可</li>
-</ul>
-</li>
-<li>POJ 2104 K-th Number</li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2048">P2048 [NOI2010] 超级钢琴</a><ul>
-<li>给一个长度为n的序列{a_i}，定义一个区间<code>[l, r]</code>的价值为这个区间中数的总和，求区间长度在<code>[L, R]</code>之间的所有区间中，价值最大的k个区间的价值总和。<ul>
-<li>將每個左邊界i，在滿足長度下，挑出價值最大的區間<code>[i, r_i]</code>放入heap中</li>
-<li>從heap中pop價值最大的區間<code>[idx, r_idx]</code></li>
-<li>並重新挑選出對idx而言滿足條件，<strong>且不重複挑選下</strong>，價值最大的區間<code>[idx, r2_idx]</code>再放入heap中</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3919">P3919 【模板】可持久化线段树 1（可持久化数组）</a></li>
-<li>BZOJ 3673: 可持久化并查集 - 可持久化线段树</li>
-<li></li>
-</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1B698yDI6otlaVQc9A3iKmXJ9Yjo9-5Av1TMjSxQjqck/edit#slide=id.gcb1ca48d35_0_1">資訊科技產業專案設計:公司面試的應對</a></p>
 
                 
             </div>
@@ -532,7 +413,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Aaron</a>
+                    <a href="/about" rel="external nofollow noreferrer">Aaron Yan</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -542,7 +423,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2021/12/13/Trees-Persistent-Segment-Tree/">https://worcdlo.github.io/2021/12/13/Trees-Persistent-Segment-Tree/</a>
+                    <a href="https://worcdlo.github.io/2021/12/14/jserv_guts4tech_live_1214/">https://worcdlo.github.io/2021/12/14/jserv_guts4tech_live_1214/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,7 +436,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint policy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Aaron</a>
+                    <a href="/about" target="_blank">Aaron Yan</a>
                     !
                 </span>
             </div>
@@ -580,16 +461,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Persistent-Segment-Tree/">
-                                    <span class="chip bg-color">Persistent Segment Tree</span>
-                                </a>
-                            
-                                <a href="/tags/Segment-Tree/">
-                                    <span class="chip bg-color">Segment Tree</span>
-                                </a>
-                            
-                                <a href="/tags/DSA-Tutorial-Persistent-Data-Structure/">
-                                    <span class="chip bg-color">DSA Tutorial Persistent Data Structure</span>
+                                <a href="/tags/Interview/">
+                                    <span class="chip bg-color">Interview</span>
                                 </a>
                             
                         </div>
@@ -632,9 +505,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/12/14/jserv_guts4tech_live_1214/">
                     <div class="card-image">
@@ -652,9 +526,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -667,6 +541,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -685,31 +560,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/11/daniel_workplace_observation/">
+                <a href="/2021/12/13/Trees-Persistent-Segment-Tree/">
                     <div class="card-image">
                         
+                        <img src="/images/persistent_seg_tree/tree1.png" class="responsive-img" alt="Persistent Segment Tree">
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？">
-                        
-                        <span class="card-title">【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？</span>
+                        <span class="card-title">Persistent Segment Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            「語言」、「溝通」、「理工」、「管理」、「謙遜」、「強勢」、「混亂」、「彈性」，便形成了他們在職場上難以取代的的組合技
+                            Detailed explanation of Persistent Segment Tree
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Personality/" class="post-category">
-                                    Personality
+                            <a href="/categories/Data-Structure/" class="post-category">
+                                    Data Structure
                                 </a>
                             
                             
@@ -719,8 +593,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Personality/">
-                        <span class="chip bg-color">Personality</span>
+                    <a href="/tags/Persistent-Segment-Tree/">
+                        <span class="chip bg-color">Persistent Segment Tree</span>
+                    </a>
+                    
+                    <a href="/tags/Segment-Tree/">
+                        <span class="chip bg-color">Segment Tree</span>
+                    </a>
+                    
+                    <a href="/tags/DSA-Tutorial-Persistent-Data-Structure/">
+                        <span class="chip bg-color">DSA Tutorial Persistent Data Structure</span>
                     </a>
                     
                 </div>
