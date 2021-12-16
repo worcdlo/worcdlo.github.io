@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Disjoint Set Union (DSU), AKAARTOEN">
-    <meta name="description" content="Detailed explanation of Disjoint Set Union">
+    <meta name="keywords" content="Minimum Height Trees (MHTs), AKAARTOEN">
+    <meta name="description" content="Detailed explanation of Minimum Height Trees">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Disjoint Set Union (DSU) | AKAARTOEN</title>
+    <title>Minimum Height Trees (MHTs) | AKAARTOEN</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/dsu/dsu1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Disjoint Set Union (DSU)</h1>
+                    <h1 class="description center-align post-title">Minimum Height Trees (MHTs)</h1>
                 </div>
             </div>
         </div>
@@ -351,12 +351,12 @@
                                 <span class="chip bg-color">Graph</span>
                             </a>
                         
-                            <a href="/tags/Trees/">
-                                <span class="chip bg-color">Trees</span>
+                            <a href="/tags/DSA-Tutorial-Graph/">
+                                <span class="chip bg-color">DSA Tutorial Graph</span>
                             </a>
                         
-                            <a href="/tags/Disjoint-Set-Union/">
-                                <span class="chip bg-color">Disjoint Set Union</span>
+                            <a href="/tags/Minimum-Height-Trees/">
+                                <span class="chip bg-color">Minimum Height Trees</span>
                             </a>
                         
                     </div>
@@ -367,8 +367,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Data-Structure/" class="post-category">
-                                Data Structure
+                            <a href="/categories/Graph/" class="post-category">
+                                Graph
                             </a>
                         
                     </div>
@@ -380,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-15
+                    2021-12-16
                 </div>
                 
 
@@ -401,88 +401,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Disjoint-Set-Union-DSU"><a href="#Disjoint-Set-Union-DSU" class="headerlink" title="Disjoint Set Union (DSU)"></a>Disjoint Set Union (DSU)</h1><p><strong>並查集</strong>英文名為Disjoint Set Union)又被稱為Union Find，因為兩個最主要的函式分別就是Union和Find</p>
-<h2 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h2><p>最常用來檢驗Graph中兩個節點是否連通</p>
-<h2 id="Naive-implementation"><a href="#Naive-implementation" class="headerlink" title="Naive implementation"></a>Naive implementation</h2><p>主要的做法就是透過parents的機制搜索樹的root，將有同樣root的節點視為在同一個連通塊中。</p>
+                <h1 id="Minimum-Height-Trees-MHTs"><a href="#Minimum-Height-Trees-MHTs" class="headerlink" title="Minimum Height Trees (MHTs)"></a>Minimum Height Trees (MHTs)</h1><p>從樹中找到一個或若干根結點，使<strong>所有子樹的最大深度最小</strong>。</p>
+<h2 id="解說"><a href="#解說" class="headerlink" title="解說"></a>解說</h2><p>跟尋找樹重心不同，最大深度問題不能採用dfs的原因在於：即使能判定其母節點方向的節點數有多少，依然無法確定母節點方向的最大深度。</p>
+<p>此時可以換個方式思考，假設我將每個<strong>葉節點</strong>(<code>只有一個edge接觸的點</code>)都從樹中移除。此時若樹中還有未被選到的點，代表這輪挑選到的葉節點必然不會是根，因此我們重新在當前的樹內重新挑選一次葉節點。</p>
 <blockquote>
-<p>初始化會將所有節點的parent都指到結點自己</p>
-<ul>
-<li><strong>Find(node)</strong>: 沿著parent找到node的root</li>
-<li><strong>Union(node1, node2)</strong>: 連接包含node1的樹以及包含node2的樹<ul>
-<li>具體作法是先各自找到root1以及root2</li>
-<li>再將兩棵樹接起來，接起來的方式就是將其中一個root的parent指到另一個</li>
-</ul>
-</li>
-</ul>
+<p>實作方法相似拓樸排序，但<strong>注意葉節點的degree是1而不是0</strong></p>
 </blockquote>
-<p>如下圖<br><img src="/images/dsu/dsu1.png" alt="Disjoint Set Union"></p>
-<h2 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h2><h3 id="Path-Compression"><a href="#Path-Compression" class="headerlink" title="Path Compression"></a>Path Compression</h3><p>有些使用情境中，我們只想簡單使用Union以及Find，而且不在意同一棵樹除了根之外如何連通，就能考慮在Find裡面使用Path Compression。</p>
-<blockquote>
-<p>由於在同一棵樹裡面，我們只在意根固定，因此在搜索根的過程中，便能順便改變樹的結構，將所有路過的節點的parent指到根，這樣能很大程度降低樹的深度</p>
-</blockquote>
-<p>如下圖<br><img src="/images/dsu/dsu2.png" alt="Disjoint Set Union"></p>
-<blockquote>
-<p>This simple modification of the operation already achieves the time complexity <strong><code>O(logn)</code> per call</strong> on average</p>
-</blockquote>
-<h3 id="Union-by-Rank-Size"><a href="#Union-by-Rank-Size" class="headerlink" title="Union by Rank / Size"></a>Union by Rank / Size</h3><p>Union的操作是在兩棵樹中，將其中一個樹的根結點的parent指向另一個樹的根節點。此時我們應該要考量，哪一個根結點作為兩顆樹合併後的根結點是更為合適的？</p>
-<p>基於不同考量，一般有兩種合併樹的方式：</p>
-<ul>
-<li><font color="LightSalmon" size=5><strong>Union by Rank</strong></font>：我們希望<strong>最大深度</strong>在合併之後的變化越少越好，明顯的我們將深度比較小的樹指到深度深的。這樣在最糟情況下，最大深度頂多比原本的多1而已<br><img src="/images/dsu/dsu4.png" alt="Union by Rank"></li>
-</ul>
-<ul>
-<li><font color="LightSalmon" size=5><strong>Union by Size</strong></font>：我們希望<strong>節點數</strong>的變化越少越好，顯然節點少的樹指到節點多的樹，會是更有利的變化<br><img src="/images/dsu/dsu3.png" alt="Union by Size"></li>
-</ul>
-<h2 id="Time-complexity"><a href="#Time-complexity" class="headerlink" title="Time complexity"></a>Time complexity</h2><blockquote>
-<p>若同時包含<strong>path compression</strong>和<strong>union by size / rank</strong>: <code>constant time</code> per queries.</p>
-</blockquote>
-<blockquote>
-<p>若只包含<strong>union by size / rank</strong>: <code>O(n*logn)</code> per queries</p>
-</blockquote>
-<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">UF</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>parents <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>rank <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>n <span class="token operator">=</span> n
-        
-    <span class="token keyword">def</span> <span class="token function">find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># with path compression</span>
-        <span class="token keyword">if</span> idx <span class="token operator">!=</span> self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict<span class="token punctuation">,</span> Counter<span class="token punctuation">,</span> deque
     
-    <span class="token keyword">def</span> <span class="token function">naive_find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> idx <span class="token operator">==</span> self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> idx
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">naive_union</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx1<span class="token punctuation">,</span> idx2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p1 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx1<span class="token punctuation">)</span>
-        p2 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx2<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">=</span> p1
-    
-    <span class="token keyword">def</span> <span class="token function">union_by_rank</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx1<span class="token punctuation">,</span> idx2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p1 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx1<span class="token punctuation">)</span>
-        p2 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx2<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> p1 <span class="token operator">!=</span> p2<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>rank<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>rank<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                p1<span class="token punctuation">,</span> p2 <span class="token operator">=</span> p2<span class="token punctuation">,</span> p1
-            self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">=</span> p1
-            <span class="token comment" spellcheck="true"># if rank of p1 and p2 are the same -> max height + 1 after merge</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>rank<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">==</span> self<span class="token punctuation">.</span>rank<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                self<span class="token punctuation">.</span>rank<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">def</span> <span class="token function">find_mht_roots</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> edges<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""find all roots of MHTs
+    - n: n nodes labelled from 0 to n - 1
+    - edges: list of bidirectional edge where edges[i] = [a_i, b_i]
+    """</span>
+    <span class="token comment" spellcheck="true"># </span>
+    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    adj <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    degrees <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> edges<span class="token punctuation">:</span>
+        degrees<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+        degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+        adj<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+        adj<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 
-    <span class="token keyword">def</span> <span class="token function">union_by_size</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx1<span class="token punctuation">,</span> idx2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p1 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx1<span class="token punctuation">)</span>
-        p2 <span class="token operator">=</span> self<span class="token punctuation">.</span>find<span class="token punctuation">(</span>idx2<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> p1 <span class="token operator">!=</span> p2<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                p1<span class="token punctuation">,</span> p2 <span class="token operator">=</span> p2<span class="token punctuation">,</span> p1
-            self<span class="token punctuation">.</span>parents<span class="token punctuation">[</span>p2<span class="token punctuation">]</span> <span class="token operator">=</span> p1
-            self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>p1<span class="token punctuation">]</span> <span class="token operator">+=</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>p2<span class="token punctuation">]</span>
+    queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> degrees<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> degrees<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+    res <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+        res <span class="token operator">=</span> list<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+        queue<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> res<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> y <span class="token keyword">in</span> adj<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                <span class="token keyword">if</span> degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#等於1就是找到葉節點</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res
 </code></pre>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://cp-algorithms.com/data_structures/disjoint_set_union.html#toc-tgt-2">cp-algorihms: Disjoint Set Union</a></li>
+<h2 id="複雜度"><a href="#複雜度" class="headerlink" title="複雜度"></a>複雜度</h2><ul>
+<li>時間複雜度：<code>O(V + E)</code></li>
+<li>空間複雜度：<code>O(V + E)</code></li>
 </ul>
 
                 
@@ -510,7 +471,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2021/12/16/Graph-Disjoint-Set/">https://worcdlo.github.io/2021/12/16/Graph-Disjoint-Set/</a>
+                    <a href="https://worcdlo.github.io/2021/12/17/Graph-Minimum-Height-Trees/">https://worcdlo.github.io/2021/12/17/Graph-Minimum-Height-Trees/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -552,12 +513,12 @@
                                     <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="/tags/Trees/">
-                                    <span class="chip bg-color">Trees</span>
+                                <a href="/tags/DSA-Tutorial-Graph/">
+                                    <span class="chip bg-color">DSA Tutorial Graph</span>
                                 </a>
                             
-                                <a href="/tags/Disjoint-Set-Union/">
-                                    <span class="chip bg-color">Disjoint Set Union</span>
+                                <a href="/tags/Minimum-Height-Trees/">
+                                    <span class="chip bg-color">Minimum Height Trees</span>
                                 </a>
                             
                         </div>
@@ -600,9 +561,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/12/17/Graph-Minimum-Height-Trees/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Minimum Height Trees (MHTs)">
+                        
+                        <span class="card-title">Minimum Height Trees (MHTs)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Detailed explanation of Minimum Height Trees
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Graph/" class="post-category">
+                                    Graph
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
+                    </a>
+                    
+                    <a href="/tags/DSA-Tutorial-Graph/">
+                        <span class="chip bg-color">DSA Tutorial Graph</span>
+                    </a>
+                    
+                    <a href="/tags/Minimum-Height-Trees/">
+                        <span class="chip bg-color">Minimum Height Trees</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/12/16/Git-Useful-Commands/">
                     <div class="card-image">
@@ -620,9 +640,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -640,55 +660,6 @@
                     
                     <a href="/tags/Git/">
                         <span class="chip bg-color">Git</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/14/jserv_guts4tech_live_1214/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="2021 年「資訊科技產業專案設計」課程：公司面試的應對">
-                        
-                        <span class="card-title">2021 年「資訊科技產業專案設計」課程：公司面試的應對</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            找工作絕非只是投履歷，而是場博弈 -- 面試本身是交易
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Interview/" class="post-category">
-                                    Interview
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Interview/">
-                        <span class="chip bg-color">Interview</span>
                     </a>
                     
                 </div>

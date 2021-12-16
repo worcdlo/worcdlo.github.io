@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Minimum Height Trees (MHTs)</title>
+      <link href="/2021/12/17/Graph-Minimum-Height-Trees/"/>
+      <url>/2021/12/17/Graph-Minimum-Height-Trees/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Minimum-Height-Trees-MHTs"><a href="#Minimum-Height-Trees-MHTs" class="headerlink" title="Minimum Height Trees (MHTs)"></a>Minimum Height Trees (MHTs)</h1><p>從樹中找到一個或若干根結點，使<strong>所有子樹的最大深度最小</strong>。</p><h2 id="解說"><a href="#解說" class="headerlink" title="解說"></a>解說</h2><p>跟尋找樹重心不同，最大深度問題不能採用dfs的原因在於：即使能判定其母節點方向的節點數有多少，依然無法確定母節點方向的最大深度。</p><p>此時可以換個方式思考，假設我將每個<strong>葉節點</strong>(<code>只有一個edge接觸的點</code>)都從樹中移除。此時若樹中還有未被選到的點，代表這輪挑選到的葉節點必然不會是根，因此我們重新在當前的樹內重新挑選一次葉節點。</p><blockquote><p>實作方法相似拓樸排序，但<strong>注意葉節點的degree是1而不是0</strong></p></blockquote><h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict<span class="token punctuation">,</span> Counter<span class="token punctuation">,</span> deque    <span class="token keyword">def</span> <span class="token function">find_mht_roots</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> edges<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token triple-quoted-string string">"""find all roots of MHTs    - n: n nodes labelled from 0 to n - 1    - edges: list of bidirectional edge where edges[i] = [a_i, b_i]    """</span>    <span class="token comment" spellcheck="true"># </span>    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    adj <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>    degrees <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> edges<span class="token punctuation">:</span>        degrees<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>        degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>        adj<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span>        adj<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>    queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">for</span> x <span class="token keyword">in</span> degrees<span class="token punctuation">:</span>        <span class="token keyword">if</span> degrees<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>            queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>    res <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">while</span> queue<span class="token punctuation">:</span>        res <span class="token operator">=</span> list<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>        queue<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">for</span> x <span class="token keyword">in</span> res<span class="token punctuation">:</span>            <span class="token keyword">for</span> y <span class="token keyword">in</span> adj<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">:</span>                degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>                <span class="token keyword">if</span> degrees<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#等於1就是找到葉節點</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span>    <span class="token keyword">return</span> res</code></pre><h2 id="複雜度"><a href="#複雜度" class="headerlink" title="複雜度"></a>複雜度</h2><ul><li>時間複雜度：<code>O(V + E)</code></li><li>空間複雜度：<code>O(V + E)</code></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Graph </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Graph </tag>
+            
+            <tag> DSA Tutorial Graph </tag>
+            
+            <tag> Minimum Height Trees </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git Useful Commands</title>
+      <link href="/2021/12/16/Git-Useful-Commands/"/>
+      <url>/2021/12/16/Git-Useful-Commands/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init<span class="token function">git</span> status<span class="token function">git</span> log<span class="token function">git</span> log --oneline<span class="token function">git</span> push<span class="token function">git</span> push -f <span class="token comment" spellcheck="true"># force push</span><span class="token function">git</span> branch <span class="token string">"branch_name"</span><span class="token function">git</span> branch -d <span class="token string">"branck_name"</span> <span class="token comment" spellcheck="true"># delete</span><span class="token function">git</span> switch <span class="token string">"branch_name"</span><span class="token function">git</span> switch -c <span class="token string">"branch_name"</span> <span class="token comment" spellcheck="true"># create a branch and switch to it</span><span class="token function">git</span> checkout -b <span class="token string">"branch_name"</span> <span class="token comment" spellcheck="true"># create a branch and switch to it</span><span class="token function">git</span> add file1, file2, file3<span class="token function">git</span> add <span class="token keyword">.</span><span class="token function">git</span> commit<span class="token function">git</span> commit -m <span class="token string">"message of this commit"</span><span class="token function">git</span> commit --amend <span class="token comment" spellcheck="true"># modify the most recent commit</span><span class="token function">git</span> merge<span class="token comment" spellcheck="true"># - Fast Forward Merge</span><span class="token comment" spellcheck="true"># - Merge Commit</span><span class="token comment" spellcheck="true"># - CONNFLICT</span><span class="token comment" spellcheck="true">#     - (0) git merge --abort</span><span class="token comment" spellcheck="true">#     - 1. git status to find unmerged files</span><span class="token comment" spellcheck="true">#     - 2. edit files and remove conflict "markers"</span><span class="token comment" spellcheck="true">#     - 3. git add &lt;file></span><span class="token comment" spellcheck="true">#     - 4. git commit</span><span class="token function">git</span> <span class="token function">diff</span> <span class="token comment" spellcheck="true"># to view changes between commits, branches, files, working directory, ...</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Disjoint Set Union (DSU)</title>
       <link href="/2021/12/16/Graph-Disjoint-Set/"/>
       <url>/2021/12/16/Graph-Disjoint-Set/</url>
