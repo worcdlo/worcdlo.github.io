@@ -13,6 +13,7 @@ tags:
   - Graph
   - Trees
   - Disjoint Set Union
+  - DSA Tutorial Graph
 ---
 
 
