@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>dsu on tree (樹上啟發式合併)</title>
+      <title>DSU On Tree (樹上啟發式合併)</title>
       <link href="/2021/12/18/Graph-Dsu-On-Tree/"/>
       <url>/2021/12/18/Graph-Dsu-On-Tree/</url>
       
@@ -22,7 +22,9 @@
             
             <tag> Graph </tag>
             
-            <tag> DSA Tutorial DSU on Tree </tag>
+            <tag> DSA Tutorial Graph </tag>
+            
+            <tag> DSU On Tree </tag>
             
         </tags>
       
@@ -106,6 +108,8 @@
             <tag> Trees </tag>
             
             <tag> Disjoint Set Union </tag>
+            
+            <tag> DSA Tutorial Graph </tag>
             
         </tags>
       
@@ -294,11 +298,11 @@
             
             <tag> Graph </tag>
             
+            <tag> DSA Tutorial Graph </tag>
+            
             <tag> Euler Circuit </tag>
             
             <tag> Euler Path </tag>
-            
-            <tag> DSA Tutorial Graph </tag>
             
         </tags>
       
