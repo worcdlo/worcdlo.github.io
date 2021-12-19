@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Leetcode Contest Review - Weekly 272</title>
+      <link href="/2021/12/19/Leetcode-Contest-Review-Weekly272/"/>
+      <url>/2021/12/19/Leetcode-Contest-Review-Weekly272/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/LeetcodeIcon.png"></p><h2 id="Leetcode-Weekly-Contest-272-Review"><a href="#Leetcode-Weekly-Contest-272-Review" class="headerlink" title="Leetcode Weekly Contest 272 Review"></a>Leetcode Weekly Contest 272 Review</h2><p>這場比賽實在太簡單，13分鐘完賽排全球51名，雖然成就感十足，但有時候不禁讓人覺得打LC Contest是浪費時間。想想昨天有一場Codeforce比賽沒去參加真的是比較可惜了。</p><h3 id="Q1-Find-First-Palindromic-String-in-the-Array"><a href="#Q1-Find-First-Palindromic-String-in-the-Array" class="headerlink" title="Q1: Find First Palindromic String in the Array"></a>Q1: Find First Palindromic String in the Array</h3><p>秒解</p><h3 id="Q2-Adding-Spaces-to-a-String"><a href="#Q2-Adding-Spaces-to-a-String" class="headerlink" title="Q2: Adding Spaces to a String"></a>Q2: Adding Spaces to a String</h3><p>這場最失敗的一題，我看到要push空白字符到string，怕用python的字串相加(<code>str + str</code>)會導致複雜度變成n^2，竟然一時之間腦袋當機改成用C++寫，python明明隨便開個list放資料最後再join就好。偏偏C++又不太熟，多花了一點時間在想語法，共花了四分鐘。</p><p>值得一提的是，我顯然沒仔細注意spaces的範圍，所以多寫了幾行無意義的邊界判斷，雖然這次沒出錯，但真的該慎記題目要看仔細…</p><h3 id="Q3-Number-of-Smooth-Descent-Periods-of-a-Stock"><a href="#Q3-Number-of-Smooth-Descent-Periods-of-a-Stock" class="headerlink" title="Q3: Number of Smooth Descent Periods of a Stock"></a>Q3: Number of Smooth Descent Periods of a Stock</h3><p>有除過一次bug是沒注意每個價格要剛好遞減1，當時以為只需要遞減。也是題目沒看仔細的緣故…</p><h3 id="Q4-Minimum-Operations-to-Make-the-Array-K-Increasing"><a href="#Q4-Minimum-Operations-to-Make-the-Array-K-Increasing" class="headerlink" title="Q4: Minimum Operations to Make the Array K-Increasing"></a>Q4: Minimum Operations to Make the Array K-Increasing</h3><p>這題第一次掃過題目時沒有完全看懂重點是什麼，後來看到測資二才明白根本就是LIS，這題主要卡在英文比大多數參賽者弱，希望能再提升。<br>另外發現有些rating蠻高的台灣人竟然不知道有nlogn的LIS，真是替他們可惜</p><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>13分鐘完賽：總名次51/15426</p><hr><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul><li><font color="LightSalmon" size=5><strong>題目真的真的真的要看仔細</strong></font></li><li>需要提升英文閱讀的精度和速度</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Competitive Programming </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Competitive Programming </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Leetcode Contest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DSU On Tree (樹上啟發式合併)</title>
       <link href="/2021/12/18/Graph-Dsu-On-Tree/"/>
       <url>/2021/12/18/Graph-Dsu-On-Tree/</url>
