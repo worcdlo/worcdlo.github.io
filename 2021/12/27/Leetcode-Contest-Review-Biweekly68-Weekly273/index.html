@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode Contest Review - Weekly 272, AKAARTOEN">
+    <meta name="keywords" content="Leetcode Contest Review - Biweekly 68 &amp; Weekly 273, AKAARTOEN">
     <meta name="description" content="Personal review of Leetcode contest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode Contest Review - Weekly 272 | AKAARTOEN</title>
+    <title>Leetcode Contest Review - Biweekly 68 &amp; Weekly 273 | AKAARTOEN</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -231,7 +231,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode Contest Review - Weekly 272</h1>
+                    <h1 class="description center-align post-title">Leetcode Contest Review - Biweekly 68 &amp; Weekly 273</h1>
                 </div>
             </div>
         </div>
@@ -380,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-19
+                    2021-12-27
                 </div>
                 
 
@@ -402,17 +402,27 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="/images/LeetcodeIcon.png"></p>
-<h2 id="Leetcode-Weekly-Contest-272-Review"><a href="#Leetcode-Weekly-Contest-272-Review" class="headerlink" title="Leetcode Weekly Contest 272 Review"></a>Leetcode Weekly Contest 272 Review</h2><p>這場比賽實在太簡單，13分鐘完賽排全球51名，雖然成就感十足，但有時候不禁讓人覺得打LC Contest是浪費時間。想想昨天有一場Codeforce比賽沒去參加真的是比較可惜了。</p>
-<h3 id="Q1-Find-First-Palindromic-String-in-the-Array"><a href="#Q1-Find-First-Palindromic-String-in-the-Array" class="headerlink" title="Q1: Find First Palindromic String in the Array"></a>Q1: Find First Palindromic String in the Array</h3><p>秒解</p>
-<h3 id="Q2-Adding-Spaces-to-a-String"><a href="#Q2-Adding-Spaces-to-a-String" class="headerlink" title="Q2: Adding Spaces to a String"></a>Q2: Adding Spaces to a String</h3><p>這場最失敗的一題，我看到要push空白字符到string，怕用python的字串相加(<code>str + str</code>)會導致複雜度變成n^2，竟然一時之間腦袋當機改成用C++寫，python明明隨便開個list放資料最後再join就好。偏偏C++又不太熟，多花了一點時間在想語法，共花了四分鐘。</p>
-<p>值得一提的是，我顯然沒仔細注意spaces的範圍，所以多寫了幾行無意義的邊界判斷，雖然這次沒出錯，但真的該慎記題目要看仔細…</p>
-<h3 id="Q3-Number-of-Smooth-Descent-Periods-of-a-Stock"><a href="#Q3-Number-of-Smooth-Descent-Periods-of-a-Stock" class="headerlink" title="Q3: Number of Smooth Descent Periods of a Stock"></a>Q3: Number of Smooth Descent Periods of a Stock</h3><p>有除過一次bug是沒注意每個價格要剛好遞減1，當時以為只需要遞減。也是題目沒看仔細的緣故…</p>
-<h3 id="Q4-Minimum-Operations-to-Make-the-Array-K-Increasing"><a href="#Q4-Minimum-Operations-to-Make-the-Array-K-Increasing" class="headerlink" title="Q4: Minimum Operations to Make the Array K-Increasing"></a>Q4: Minimum Operations to Make the Array K-Increasing</h3><p>這題第一次掃過題目時沒有完全看懂重點是什麼，後來看到測資二才明白根本就是LIS，這題主要卡在英文比大多數參賽者弱，希望能再提升。<br>另外發現有些rating蠻高的台灣人竟然不知道有nlogn的LIS，真是替他們可惜</p>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>13分鐘完賽：總名次51/15426</p>
+<h2 id="Leetcode-Biweekly-Contest-68-Review"><a href="#Leetcode-Biweekly-Contest-68-Review" class="headerlink" title="Leetcode Biweekly Contest 68 Review"></a>Leetcode Biweekly Contest 68 Review</h2><h3 id="Q1-LC-2114-Maximum-Number-of-Words-Found-in-Sentences"><a href="#Q1-LC-2114-Maximum-Number-of-Words-Found-in-Sentences" class="headerlink" title="Q1: LC-2114. Maximum Number of Words Found in Sentences"></a>Q1: LC-2114. Maximum Number of Words Found in Sentences</h3><p>比typing速度</p>
+<h3 id="Q2-LC-2115-Find-All-Possible-Recipes-from-Given-Supplies"><a href="#Q2-LC-2115-Find-All-Possible-Recipes-from-Given-Supplies" class="headerlink" title="Q2: LC-2115. Find All Possible Recipes from Given Supplies"></a>Q2: LC-2115. Find All Possible Recipes from Given Supplies</h3><p>這題蠻多英文單字和句子沒看懂，所以一開始亂猜題目，並寫了一個亂猜的版本，浪費了蠻多時間，<strong>如果題目真的不太懂，就更該把測資看完才行</strong>。後來懂了題目後，又花了蠻多時間才意識到是要做topological sort，但如何加速這件事情目前還沒想法，總之這題共花了13分鐘。</p>
+<h3 id="Q3-LC-2116-Check-if-a-Parentheses-String-Can-Be-Valid"><a href="#Q3-LC-2116-Check-if-a-Parentheses-String-Can-Be-Valid" class="headerlink" title="Q3: LC-2116. Check if a Parentheses String Can Be Valid"></a>Q3: LC-2116. Check if a Parentheses String Can Be Valid</h3><p>隨便給一串只包含括號的字串，某些位置被鎖起來不能翻轉，其餘可以自由變換括號方向，問是否存在一個變化方式使字串變成合法的括號形式。<br>其實這題我不太肯定自己的答案是否正確或只是剛好AC，暫時無法明確想到改善方式，需要再多研究一下這題。</p>
+<h3 id="Q4-LC-2117-Abbreviating-the-Product-of-a-Range"><a href="#Q4-LC-2117-Abbreviating-the-Product-of-a-Range" class="headerlink" title="Q4: LC-2117. Abbreviating the Product of a Range"></a>Q4: LC-2117. Abbreviating the Product of a Range</h3><p>將數字變成另一種表達法，這個表達法只會保留前後五碼，並喪失中間所有數字的精度，但題目也只要求前後五碼數字正確即可。</p>
+<p>後五碼的部分應該不會有什麼問題，主要是前五碼，這題我花了兩個多小時才寫出一個前五碼精度不夠正確的答案。<br>題目是將所有數字相乘，後來看到<strong>AC的解是將原始數字取log10後相加，之後再還原即可</strong>，畢竟只要保留前五碼的精度，並不是什麼很嚴苛的條件，真是長知識了</p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>38分鐘寫前三題加上1次WA：總名次383/10622</p>
 <hr>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li><font color="LightSalmon" size=5><strong>題目真的真的真的要看仔細</strong></font></li>
-<li>需要提升英文閱讀的精度和速度</li>
+<h2 id="Leetcode-Weekly-Contest-272-Review"><a href="#Leetcode-Weekly-Contest-272-Review" class="headerlink" title="Leetcode Weekly Contest 272 Review"></a>Leetcode Weekly Contest 272 Review</h2><p>這場比賽我只有參加virtual contest，不過跟前一天的比賽相比，真的是簡單很多</p>
+<h3 id="Q1-LC-2119-A-Number-After-a-Double-Reversal"><a href="#Q1-LC-2119-A-Number-After-a-Double-Reversal" class="headerlink" title="Q1: LC-2119. A Number After a Double Reversal"></a>Q1: LC-2119. A Number After a Double Reversal</h3><p>比打字速度的題目，但這題我明顯濫用python數字及字串互轉的方便性，明明只要判斷是否餘十即可。</p>
+<h3 id="Q2-LC-2120-Execution-of-All-Suffix-Instructions-Staying-in-a-Grid"><a href="#Q2-LC-2120-Execution-of-All-Suffix-Instructions-Staying-in-a-Grid" class="headerlink" title="Q2: LC-2120. Execution of All Suffix Instructions Staying in a Grid"></a>Q2: LC-2120. Execution of All Suffix Instructions Staying in a Grid</h3><p>這題原本想了很久，覺得應該有<code>O(n)</code>解，不過最終還是寫了暴力解<code>O(n^2)</code>，另外有一個很爛的bug花了很多時間才找到，他放在我自以為絕對不會出錯的小function上，所以debug途中一直沒有去看那個function。</p>
+<h3 id="Q3-LC-2121-Intervals-Between-Identical-Elements"><a href="#Q3-LC-2121-Intervals-Between-Identical-Elements" class="headerlink" title="Q3: LC-2121. Intervals Between Identical Elements"></a>Q3: LC-2121. Intervals Between Identical Elements</h3><p>我覺得是個好題目，<strong>沿著數線上的點移動，並計算數線上所有點跟這個點的距離和</strong>，雖然不是什麼難題，但我每次遇到都浪費很多時間在實現他，應該要找一個漂亮的版本理解一下。</p>
+<h3 id="Q4-LC-2122-Recover-the-Original-Array"><a href="#Q4-LC-2122-Recover-the-Original-Array" class="headerlink" title="Q4: LC-2122. Recover the Original Array"></a>Q4: LC-2122. Recover the Original Array</h3><p>突破口明顯就是最大或是最小數字，也曾想說有沒有更好的答案，不過顯然暴力解就足以通過，有些一倍delta兩倍delta之類的小細節造成的bug要注意，另外可以再多想想如何輸出解答會更有效。</p>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p>是場簡單的比賽，浪費蠻多時間才40分鐘完賽，如果有參加的話應該會落在185/12203上下</p>
+<hr>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>如果題目真的不太懂，就更該把測資看完 (critical)</li>
+<li>英文閱讀能力該提升了，至少要回去把看不懂的問題再多看幾遍 (critical)</li>
+<li>一些不追求精度的問題，可以考慮數值解，例如乘法改成取log10後相加</li>
+<li>沿著數線上的點移動，並<strong>計算數線上所有點跟當前位置的距離和</strong>，遇過這種題目超多次了，每次都寫一個不同版本，快去找一個寫得漂亮的解 (critical)</li>
+<li>有些題目即使無腦解能過，或許簡單想一下實作起來更簡單</li>
+<li>寫程式時，大方把握後，就該注意小細節別寫錯</li>
 </ul>
 
                 
@@ -440,7 +450,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2021/12/19/Leetcode-Contest-Review-Weekly272/">https://worcdlo.github.io/2021/12/19/Leetcode-Contest-Review-Weekly272/</a>
+                    <a href="https://worcdlo.github.io/2021/12/27/Leetcode-Contest-Review-Biweekly68-Weekly273/">https://worcdlo.github.io/2021/12/27/Leetcode-Contest-Review-Biweekly68-Weekly273/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,9 +540,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/12/27/Leetcode-Contest-Review-Biweekly68-Weekly273/">
                     <div class="card-image">
@@ -549,9 +560,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -564,6 +575,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -590,30 +602,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/18/Graph-Dsu-On-Tree/">
+                <a href="/2021/12/19/Leetcode-Contest-Review-Weekly272/">
                     <div class="card-image">
                         
-                        <img src="/images/dsu_on_tree/img1.png" class="responsive-img" alt="DSU On Tree (樹上啟發式合併)">
+                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Weekly 272">
                         
-                        <span class="card-title">DSU On Tree (樹上啟發式合併)</span>
+                        <span class="card-title">Leetcode Contest Review - Weekly 272</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Detailed explanation of DSU on Tree
+                            Personal review of Leetcode contest
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Graph/" class="post-category">
-                                    Graph
+                            <a href="/categories/Competitive-Programming/" class="post-category">
+                                    Competitive Programming
                                 </a>
                             
                             
@@ -623,16 +635,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Graph/">
-                        <span class="chip bg-color">Graph</span>
+                    <a href="/tags/Competitive-Programming/">
+                        <span class="chip bg-color">Competitive Programming</span>
                     </a>
                     
-                    <a href="/tags/DSA-Tutorial-Graph/">
-                        <span class="chip bg-color">DSA Tutorial Graph</span>
+                    <a href="/tags/Leetcode/">
+                        <span class="chip bg-color">Leetcode</span>
                     </a>
                     
-                    <a href="/tags/DSU-On-Tree/">
-                        <span class="chip bg-color">DSU On Tree</span>
+                    <a href="/tags/Leetcode-Contest/">
+                        <span class="chip bg-color">Leetcode Contest</span>
                     </a>
                     
                 </div>

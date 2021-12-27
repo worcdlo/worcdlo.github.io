@@ -393,7 +393,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Necessary-Git-Commands"><a href="#Necessary-Git-Commands" class="headerlink" title="Necessary Git Commands"></a>Necessary Git Commands</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init
+                <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>Git is a version control system on a machine locally.</p>
+<h2 id="Necessary-Git-Commands"><a href="#Necessary-Git-Commands" class="headerlink" title="Necessary Git Commands"></a>Necessary Git Commands</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init
 <span class="token function">git</span> status
 
 <span class="token function">git</span> log
@@ -403,9 +404,11 @@
 <span class="token function">git</span> push -f <span class="token comment" spellcheck="true"># force push</span>
 
 <span class="token function">git</span> branch <span class="token string">"branch_name"</span>
-<span class="token function">git</span> branch -d <span class="token string">"branck_name"</span> <span class="token comment" spellcheck="true"># delete</span>
+<span class="token function">git</span> branch -d <span class="token string">"branch_name"</span> <span class="token comment" spellcheck="true"># delete</span>
+<span class="token function">git</span> branch -M <span class="token string">"new name"</span> <span class="token comment" spellcheck="true"># rename current branch</span>
 
 <span class="token function">git</span> switch <span class="token string">"branch_name"</span>
+<span class="token function">git</span> switch - <span class="token comment" spellcheck="true"># back to whatever branch I was</span>
 <span class="token function">git</span> switch -c <span class="token string">"branch_name"</span> <span class="token comment" spellcheck="true"># create a branch and switch to it</span>
 <span class="token function">git</span> checkout -b <span class="token string">"branch_name"</span> <span class="token comment" spellcheck="true"># create a branch and switch to it</span>
 
@@ -474,9 +477,64 @@
 </code></pre>
 <h3 id="Undo-changes-Go-back-in-time"><a href="#Undo-changes-Go-back-in-time" class="headerlink" title="Undo changes, Go back in time"></a>Undo changes, Go back in time</h3><h4 id="Detached-HEAD"><a href="#Detached-HEAD" class="headerlink" title="Detached HEAD"></a>Detached HEAD</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># checkout 功能太多，才衍生 switch, restore</span>
 <span class="token function">git</span> checkout <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span> <span class="token comment" spellcheck="true"># view a previous commit</span>
+<span class="token comment" spellcheck="true"># 1. Usually, HEAD points to a specific branch reference rather than a particular commit. When we checkout a particular commit, HEAD points at that commit rather than at the branch pointer (detached head)</span>
+<span class="token comment" spellcheck="true"># 2. Levae by using git switch &lt;branch-name></span>
+<span class="token comment" spellcheck="true"># 3. Create a new branch and switch to it. (new branch is based upon HEAD)</span>
 
-<span class="token comment" spellcheck="true"># 1. Usually, HEAD points to a specific branch reference rather than a particular commit</span>
-<span class="token comment" spellcheck="true"># 2. When we checkout a particular commit, HEAD points at that commit rather than at the branch pointer (detached head)</span>
+<span class="token function">git</span> checkout HEAD~2 <span class="token comment" spellcheck="true"># refers to 2 commits before this HEAD</span>
+</code></pre>
+<h4 id="Discarding-Changes"><a href="#Discarding-Changes" class="headerlink" title="Discarding Changes"></a>Discarding Changes</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout HEAD <span class="token operator">&lt;</span>filename<span class="token operator">></span> <span class="token comment" spellcheck="true"># to discard any changes in that file, reverting back to the HEAD</span>
+<span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>filename<span class="token operator">></span>
+<span class="token function">git</span> restore <span class="token operator">&lt;</span>filename1, filename2, <span class="token punctuation">..</span>.<span class="token operator">></span> <span class="token comment" spellcheck="true"># to restore the file to the contents in the HEAD</span>
+<span class="token function">git</span> restore --source HEAD~1 <span class="token operator">&lt;</span>filename<span class="token operator">></span> <span class="token comment" spellcheck="true"># to restore the contents to its state from the commit prior to HEAD</span>
+<span class="token function">git</span> restore --source <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span> <span class="token operator">&lt;</span>filename<span class="token operator">></span>
+<span class="token function">git</span> restore --staged <span class="token operator">&lt;</span>filename<span class="token operator">></span> <span class="token comment" spellcheck="true"># remove file from staging area, but it is still in the working area.</span>
+
+<span class="token function">git</span> reset <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span> <span class="token comment" spellcheck="true"># will reset the repo back to a specific commit, the commits are gone, but the changes are still in the working area</span>
+<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span> <span class="token comment" spellcheck="true"># will delete the alst commit as well as associated changes</span>
+
+
+<span class="token comment" spellcheck="true"># 1. reset removes commits entirely and it moves the branch pointer backwards if those commits nevers occurred</span>
+<span class="token comment" spellcheck="true"># 2. revert creates a new commit which undo changes from a commit, revert may also cause CONFLICT</span>
+<span class="token function">git</span> revert <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span>
+<span class="token comment" spellcheck="true"># 使用revert而不是reset的時機：假設有一些bad commit要移除，但是在多人合作模式下，若這些commit正在被其他人使用中，我不能直接透過reset移除這些commit，這樣之後merge會有問題，那為了把過去的錯誤消除，我們能透過revert創立新的commit去移除這些問題。</span>
+</code></pre>
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p>Github is a hosting platform for git repositories</p>
+<h2 id="Necessary-Commands"><a href="#Necessary-Commands" class="headerlink" title="Necessary Commands"></a>Necessary Commands</h2><h3 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token operator">&lt;</span>URL<span class="token operator">></span> <span class="token comment" spellcheck="true"># URL並不是綁github的連結</span>
+<span class="token function">git</span> config user.email <span class="token string">"mail"</span>
+<span class="token function">git</span> config user.password <span class="token string">""</span>
+
+<span class="token comment" spellcheck="true"># SSH Keys: need to be authenticated on Github to do certain operations</span>
+<span class="token comment" spellcheck="true"># 1. check whether ssh key exists: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys</span>
+<span class="token comment" spellcheck="true"># 2. generate a new ssh key: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</span>
+</code></pre>
+<h3 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote -v <span class="token comment" spellcheck="true"># show url of fetch, push</span>
+<span class="token function">git</span> remote <span class="token comment" spellcheck="true"># origin</span>
+
+<span class="token comment" spellcheck="true"># EXIST LOCAL REPO</span>
+<span class="token comment" spellcheck="true"># 1. Create a new repo on Github</span>
+<span class="token comment" spellcheck="true"># 2. Connect your local repo (add a remote)</span>
+<span class="token comment" spellcheck="true"># 3. Push up your changes to Github</span>
+<span class="token function">git</span> remote <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token operator">&lt;</span>url<span class="token operator">></span> <span class="token comment" spellcheck="true"># git remote origin https://github.com/...., connect the local repo to a url</span>
+<span class="token function">git</span> remote <span class="token function">rename</span> <span class="token operator">&lt;</span>oldname<span class="token operator">></span> <span class="token operator">&lt;</span>newname<span class="token operator">></span>
+<span class="token function">git</span> remote remove <span class="token operator">&lt;</span>name<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true"># START FROM SCARTCH</span>
+<span class="token comment" spellcheck="true"># 1. Create a brand new repo on Github</span>
+<span class="token comment" spellcheck="true"># 2. Clone it down to your machine</span>
+<span class="token comment" spellcheck="true"># 3. Do some work locally</span>
+<span class="token comment" spellcheck="true"># 4. Push up your changes to Github</span>
+</code></pre>
+<h3 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push <span class="token comment" spellcheck="true"># 會提交到"預設"的儲存庫</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">></span> <span class="token operator">&lt;</span>branch<span class="token operator">></span> <span class="token comment" spellcheck="true"># `git push origin master`, push up the master branch to our origin remote</span>
+
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">></span> <span class="token operator">&lt;</span>local-branch<span class="token operator">></span>:<span class="token operator">&lt;</span>remote-branch<span class="token operator">></span> <span class="token comment" spellcheck="true"># push local branch into remote branch</span>
+
+<span class="token function">git</span> push origin --delete <span class="token operator">&lt;</span>remote-branch<span class="token operator">></span> <span class="token comment" spellcheck="true"># delete remote branch</span>
+<span class="token function">git</span> push origin -d <span class="token operator">&lt;</span>remote-branch<span class="token operator">></span>
+
+<span class="token function">git</span> push -u origin master <span class="token comment" spellcheck="true"># -u 表示將origin/master設定為本地master分支的upstream</span>
+<span class="token function">git</span> push -u origin <span class="token operator">&lt;</span>local-branch<span class="token operator">></span>:<span class="token operator">&lt;</span>remote-branch<span class="token operator">></span>
 </code></pre>
 
                 
