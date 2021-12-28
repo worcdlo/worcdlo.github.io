@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？, AKAARTOEN">
-    <meta name="description" content="「語言」、「溝通」、「理工」、「管理」、「謙遜」、「強勢」、「混亂」、「彈性」，便形成了他們在職場上難以取代的的組合技">
+    <meta name="keywords" content="Suffix Array, AKAARTOEN">
+    <meta name="description" content="Detailed explanation of Suffix Array">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？ | AKAARTOEN</title>
+    <title>Suffix Array | AKAARTOEN</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？</h1>
+                    <h1 class="description center-align post-title">Suffix Array</h1>
                 </div>
             </div>
         </div>
@@ -347,8 +347,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Personality/">
-                                <span class="chip bg-color">Personality</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
+                            </a>
+                        
+                            <a href="/tags/Longest-Duplicate-Substring/">
+                                <span class="chip bg-color">Longest Duplicate Substring</span>
+                            </a>
+                        
+                            <a href="/tags/DSA-Tutorial-String/">
+                                <span class="chip bg-color">DSA Tutorial String</span>
                             </a>
                         
                     </div>
@@ -359,8 +367,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Personality/" class="post-category">
-                                Personality
+                            <a href="/categories/String/" class="post-category">
+                                String
                             </a>
                         
                     </div>
@@ -372,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-10
+                    2021-12-27
                 </div>
                 
 
@@ -393,9 +401,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="【Daniel-職場觀察】Google、微軟、Twitter-新-CEO：印度裔憑什麼攻佔美國-500-大企業？"><a href="#【Daniel-職場觀察】Google、微軟、Twitter-新-CEO：印度裔憑什麼攻佔美國-500-大企業？" class="headerlink" title="【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？"></a><a target="_blank" rel="noopener" href="https://www.inside.com.tw/article/25935-ceo"><font color="LightSalmon" size=5><strong>【Daniel 職場觀察】Google、微軟、Twitter 新 CEO：印度裔憑什麼攻佔美國 500 大企業？</strong></font></a></h1><p>很喜歡這篇文章，但我怕整篇複製違反著作權法，只放上幾個大標題，對原文感興趣者請自行進入連結觀看，希望有朝一日能漸漸培養出這些能力。</p>
-<h3 id="【特質一】「語言」＋「溝通」"><a href="#【特質一】「語言」＋「溝通」" class="headerlink" title="【特質一】「語言」＋「溝通」"></a>【特質一】「語言」＋「溝通」</h3><h3 id="【特質二】「理工」＋「管理」"><a href="#【特質二】「理工」＋「管理」" class="headerlink" title="【特質二】「理工」＋「管理」"></a>【特質二】「理工」＋「管理」</h3><h3 id="【特質三】「謙遜」＋「強勢」"><a href="#【特質三】「謙遜」＋「強勢」" class="headerlink" title="【特質三】「謙遜」＋「強勢」"></a>【特質三】「謙遜」＋「強勢」</h3><h3 id="【特質四】「混亂」＋「彈性」"><a href="#【特質四】「混亂」＋「彈性」" class="headerlink" title="【特質四】「混亂」＋「彈性」"></a>【特質四】「混亂」＋「彈性」</h3><blockquote>
-<p><strong>「你必須保持開放的心胸，如果你只鎖定一個想法，那就是死路一條。」</strong></p>
+                <h1 id="Suffix-Array"><a href="#Suffix-Array" class="headerlink" title="Suffix Array"></a>Suffix Array</h1><p>給一個字串，將這個字串所有的後綴(suffix)都拿出來按照字典序排序，定義</p>
+<ul>
+<li>sa[rank] = idx: 排名在rank的後綴從哪個idx開始</li>
+<li>ranks[idx] = rank: 第idx號後綴的排名為rank</li>
+</ul>
+<p>如下圖，字串為<code>&quot;aabaaaab&quot;</code>，則sa及ranks分別為<br><img src="/images/suffix_array/sa1.jpg" width="70%" height="70%"></p>
+<h2 id="倍增法"><a href="#倍增法" class="headerlink" title="倍增法"></a>倍增法</h2><p>為了更快速的對每個後綴排序，一種簡單的方式是使用倍增法。</p>
+<blockquote>
+<p>在倍增法的第k輪中，我們對每個SubStr(idx, 2^k)做排序，其中:<br><code>SubStr(idx, 2^k) = SubStr(idx, 2^(k-1)) + SubStr(idx+2^(k-1), 2^(k-1))</code></p>
+<p>若我們知道第k-1輪每個SubStr(idx, 2^(k-1))的大小關係，則SubStr(idx,2^k)的大小關係便能透過比較其<code>(ranks[idx], ranks[idx + 2^(k-1)])</code>得到，如下圖。</p>
+</blockquote>
+<img src="/images/suffix_array/sa2.jpg" width="70%" height="70%">
+
+
+<blockquote>
+<p>注意<code>idx+2^(k-1)</code>有可能超過字串範圍，在此將所有超過字串範圍的rank都視為0</p>
 </blockquote>
 
                 
@@ -413,7 +434,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Aaron Yan</a>
+                    <a href="/about" rel="external nofollow noreferrer">Aaron</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -423,7 +444,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2021/12/11/daniel_workplace_observation/">https://worcdlo.github.io/2021/12/11/daniel_workplace_observation/</a>
+                    <a href="https://worcdlo.github.io/2021/12/28/String-Suffix-Array/">https://worcdlo.github.io/2021/12/28/String-Suffix-Array/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -436,7 +457,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint policy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Aaron Yan</a>
+                    <a href="/about" target="_blank">Aaron</a>
                     !
                 </span>
             </div>
@@ -461,8 +482,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Personality/">
-                                    <span class="chip bg-color">Personality</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
+                                </a>
+                            
+                                <a href="/tags/Longest-Duplicate-Substring/">
+                                    <span class="chip bg-color">Longest Duplicate Substring</span>
+                                </a>
+                            
+                                <a href="/tags/DSA-Tutorial-String/">
+                                    <span class="chip bg-color">DSA Tutorial String</span>
                                 </a>
                             
                         </div>
@@ -509,87 +538,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/13/Trees-Persistent-Segment-Tree/">
+                <a href="/2021/12/28/Leetcode2117-Abbreviating-the-Product-of-a-Range/">
                     <div class="card-image">
                         
-                        <img src="/images/persistent_seg_tree/tree1.png" class="responsive-img" alt="Persistent Segment Tree">
                         
-                        <span class="card-title">Persistent Segment Tree</span>
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Leetcode 2117. Abbreviating the Product of a Range">
+                        
+                        <span class="card-title">Leetcode 2117. Abbreviating the Product of a Range</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Detailed explanation of Persistent Segment Tree
+                            Maintain first k-digits for large value? Remember the Logarithm!
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Data-Structure/" class="post-category">
-                                    Data Structure
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Persistent-Segment-Tree/">
-                        <span class="chip bg-color">Persistent Segment Tree</span>
-                    </a>
-                    
-                    <a href="/tags/Segment-Tree/">
-                        <span class="chip bg-color">Segment Tree</span>
-                    </a>
-                    
-                    <a href="/tags/DSA-Tutorial-Persistent-Data-Structure/">
-                        <span class="chip bg-color">DSA Tutorial Persistent Data Structure</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/09/Leetcode0913-Cat-and-Mouse/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Leetcode 913. Cat and Mouse">
-                        
-                        <span class="card-title">Leetcode 913. Cat and Mouse</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Whether the cat can catch the mouse? Stay tuned to find out!
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Dynamic-Programming/" class="post-category">
-                                    Dynamic Programming
+                            <a href="/categories/Math/" class="post-category">
+                                    Math
                                 </a>
                             
                             
@@ -603,12 +576,64 @@
                         <span class="chip bg-color">Leetcode</span>
                     </a>
                     
-                    <a href="/tags/Dynamic-Programming/">
-                        <span class="chip bg-color">Dynamic Programming</span>
+                    <a href="/tags/Math/">
+                        <span class="chip bg-color">Math</span>
                     </a>
                     
-                    <a href="/tags/%E7%92%B0%E7%8B%80DP/">
-                        <span class="chip bg-color">環狀DP</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/27/Leetcode-Contest-Review-Biweekly68-Weekly273/">
+                    <div class="card-image">
+                        
+                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Biweekly 68 &amp; Weekly 273">
+                        
+                        <span class="card-title">Leetcode Contest Review - Biweekly 68 &amp; Weekly 273</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Personal review of Leetcode contest
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Competitive-Programming/" class="post-category">
+                                    Competitive Programming
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Competitive-Programming/">
+                        <span class="chip bg-color">Competitive Programming</span>
+                    </a>
+                    
+                    <a href="/tags/Leetcode/">
+                        <span class="chip bg-color">Leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/Leetcode-Contest/">
+                        <span class="chip bg-color">Leetcode Contest</span>
                     </a>
                     
                 </div>
