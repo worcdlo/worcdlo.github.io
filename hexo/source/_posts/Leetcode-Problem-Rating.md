@@ -19,8 +19,8 @@ tags:
 
 | Finished | Rating  | ID   | Title                                                               | Comment                                            |
 | -------- | ------- | ---- | ------------------------------------------------------------------- | -------------------------------------------------- |
-| &#9744;  | 3018.49 | 1719 | Number Of Ways To Reconstruct A Tree                                |                                                    |
-| &#9744;  | 2872.03 | 1982 | Find Array Given Subset Sums                                        |                                                    |
+| &#9745;  | 3018.49 | 1719 | Number Of Ways To Reconstruct A Tree                                |乍看是Graph問題，如果有看出是排列組合問題應該就不是難題了，另外需要會模反知識。|
+| &#9745;  | 2872.03 | 1982 | Find Array Given Subset Sums                                        |[原題都是非負數](https://www.codechef.com/problems/ANUMLA)。負最小跟正最大值顯然就是全負或是全正的集合，再觀察如果`所有當前集合`都扣掉`全負集合`，集合的結構如何變化? 這題需要再多複習。|
 | &#9744;  | 2863.14 | 770  | Basic Calculator IV                                                 |                                                    |
 | &#9744;  | 2849.48 | 1728 | Cat and Mouse II                                                    |                                                    |
 | &#9744;  | 2817.27 | 1977 | Number of Ways to Separate Numbers                                  |                                                    |
@@ -109,10 +109,10 @@ tags:
 | &#9744;  | 2315.60 | 1187 | Make Array Strictly Increasing                                      |                                                    |
 | &#9744;  | 2312.99 | 1857 | Largest Color Value in a Directed Graph                             |                                                    |
 | &#9744;  | 2310.38 | 1959 | Minimum Total Space Wasted With K Resizing Operations               |                                                    |
-| &#9744;  | 2308.65 | 1617 | Count Subtrees With Max Distance Between Cities                     |                                                    |
-| &#9744;  | 2307.02 | 1655 | Distribute Repeating Integers                                       |                                                    |
-| &#9744;  | 2306.85 | 862  | Shortest Subarray with Sum at Least K                               |                                                    |
-| &#9744;  | 2300.16 | 1697 | Checking Existence of Edge Length Limited Paths                     |                                                    |
+| &#9745;  | 2308.65 | 1617 | Count Subtrees With Max Distance Between Cities                     |2021.12.30 寫得有點太複雜，我對每個bitmask都先確認連通再求直徑。 之前寫過的解是從最小的連通塊開始長大，因此不用再判斷連通，只要小心別重複計算即可，不過未必比較好就是了。雖然計算Graph的直徑確實可以用dfs，但本題可以事先用Floyd-Warshall algorithm建立距離表，程式碼會比較簡潔，惟複雜度會比較高。|
+| &#9745;  | 2307.02 | 1655 | Distribute Repeating Integers                                       |2021.12.30 簡單，題目要仔細看，竟然漏掉m=10這個超強限制，可以想想如果m很大的話能不能解  |
+| &#9745;  | 2306.85 | 862  | Shortest Subarray with Sum at Least K                               |2021.12.30 簡單  |
+| &#9745;  | 2300.16 | 1697 | Checking Existence of Edge Length Limited Paths                     |2021.12.30 簡單，我以前竟然在比賽沒解出這題  |
 
 
 
