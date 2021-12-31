@@ -102,16 +102,16 @@ tags:
 | &#9744;  | 2345.34 | 1611 | Minimum One Bit Operations to Make Integers Zero                    |                                                    |
 | &#9744;  | 2341.45 | 810  | Chalkboard XOR Game                                                 |                                                    |
 | &#9744;  | 2336.52 | 1505 | Minimum Possible Integer After at Most K Adjacent Swaps On Digits   |                                                    |
-| &#9744;  | 2333.24 | 1674 | Minimum Moves to Make Array Complementary                           |                                                    |
-| &#9744;  | 2333.06 | 1866 | Number of Ways to Rearrange Sticks With K Sticks Visible            |                                                    |
-| &#9744;  | 2333.01 | 1585 | Check If String Is Transformable With Substring Sort Operations     |                                                    |
-| &#9744;  | 2328.43 | 882  | Reachable Nodes In Subdivided Graph                                 |                                                    |
-| &#9744;  | 2315.60 | 1187 | Make Array Strictly Increasing                                      |                                                    |
-| &#9744;  | 2312.99 | 1857 | Largest Color Value in a Directed Graph                             |                                                    |
-| &#9744;  | 2310.38 | 1959 | Minimum Total Space Wasted With K Resizing Operations               |                                                    |
-| &#9745;  | 2308.65 | 1617 | Count Subtrees With Max Distance Between Cities                     |2021.12.30 寫得有點太複雜，我對每個bitmask都先確認連通再求直徑。 之前寫過的解是從最小的連通塊開始長大，因此不用再判斷連通，只要小心別重複計算即可，不過未必比較好就是了。雖然計算Graph的直徑確實可以用dfs，但本題可以事先用Floyd-Warshall algorithm建立距離表，程式碼會比較簡潔，惟複雜度會比較高。|
-| &#9745;  | 2307.02 | 1655 | Distribute Repeating Integers                                       |2021.12.30 簡單，題目要仔細看，竟然漏掉m=10這個超強限制，可以想想如果m很大的話能不能解  |
-| &#9745;  | 2306.85 | 862  | Shortest Subarray with Sum at Least K                               |2021.12.30 簡單  |
+| &#9745;  | 2333.24 | 1674 | Minimum Moves to Make Array Complementary                           |<font color=#0000FF>**2022.01.01**</font> 對這題有印象，我用BIT維護大於或小於某數的個數，但**這題可以用差分概念解，目前還沒有想通**  |
+| &#9745;  | 2333.06 | 1866 | Number of Ways to Rearrange Sticks With K Sticks Visible            |<font color=#0000FF>**2022.01.01**</font> 單純要完成這題的話，**把DP表印出來很容易就能觀察到規律，但其實這題很難，目前為止還沒想通** |
+| &#9745;  | 2333.01 | 1585 | Check If String Is Transformable With Substring Sort Operations     |2022.01.01 找規律卡了一下，後來發現不論怎麼交換，都不可能把大的數字都不可能向前穿越小的數字，因此從後往前看，只要確認是否存在大的數字把我們想要取走的數字卡住即可  |
+| &#9745;  | 2328.43 | 882  | Reachable Nodes In Subdivided Graph                                 |2021.12.31 簡單，但有點久沒寫Dijkstra，加上又是變形題，多花了一些時間設計流程，總之就是對每個大節點都找最短距離，之後再處理節點中間的小點 |
+| &#9745;  | 2315.60 | 1187 | Make Array Strictly Increasing                                      |2021.12.31 簡單，很標準的DP問題，但我連續繳交錯三次答案，應該要更**小心處理狀態轉換以及初始值**的問題 |
+| &#9745;  | 2312.99 | 1857 | Largest Color Value in a Directed Graph                             |2021.12.31 簡單，一開始沒注意到只有26種顏色，我直接寫一個toposort並DP更新26種顏色的最大值，同時還能確認是否有cycle，我看以前曾經寫過的版本是先確認cycle，再每個顏色都各跑一輪，顯然今天寫的版本更好，**可以想想如果顏色是10^5是否能解**|
+| &#9745;  | 2310.38 | 1959 | Minimum Total Space Wasted With K Resizing Operations               |2021.12.31 簡單，這題rating感覺頂多2100吧  |
+| &#9745;  | 2308.65 | 1617 | Count Subtrees With Max Distance Between Cities                     |2021.12.31 寫得有點太複雜，我對每個bitmask都先確認連通再求直徑。 之前寫過的解是從最小的連通塊開始長大，因此不用再判斷連通，只要小心別重複計算即可，不過未必比較好就是了。雖然計算Graph的直徑確實可以用dfs，但本題可以事先用Floyd-Warshall algorithm建立距離表，程式碼會比較簡潔，惟複雜度會比較高。|
+| &#9745;  | 2307.02 | 1655 | Distribute Repeating Integers                                       |2021.12.31 簡單，**題目要仔細看**，竟然漏掉m=10這個超強限制，**可以想想如果m很大的話能不能解**  |
+| &#9745;  | 2306.85 | 862  | Shortest Subarray with Sum at Least K                               |2021.12.31 簡單  |
 | &#9745;  | 2300.16 | 1697 | Checking Existence of Edge Length Limited Paths                     |2021.12.30 簡單，我以前竟然在比賽沒解出這題  |
 
 
