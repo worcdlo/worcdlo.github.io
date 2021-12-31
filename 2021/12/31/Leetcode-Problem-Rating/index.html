@@ -989,74 +989,74 @@
 <td></td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2333.24</td>
 <td>1674</td>
 <td>Minimum Moves to Make Array Complementary</td>
-<td></td>
+<td><font color=#0000FF><strong>2022.01.01</strong></font> 對這題有印象，我用BIT維護大於或小於某數的個數，但<strong>這題可以用差分概念解，目前還沒有想通</strong></td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2333.06</td>
 <td>1866</td>
 <td>Number of Ways to Rearrange Sticks With K Sticks Visible</td>
-<td></td>
+<td><font color=#0000FF><strong>2022.01.01</strong></font> 單純要完成這題的話，<strong>把DP表印出來很容易就能觀察到規律，但其實這題很難，目前為止還沒想通</strong></td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2333.01</td>
 <td>1585</td>
 <td>Check If String Is Transformable With Substring Sort Operations</td>
-<td></td>
+<td>2022.01.01 找規律卡了一下，後來發現不論怎麼交換，都不可能把大的數字都不可能向前穿越小的數字，因此從後往前看，只要確認是否存在大的數字把我們想要取走的數字卡住即可</td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2328.43</td>
 <td>882</td>
 <td>Reachable Nodes In Subdivided Graph</td>
-<td></td>
+<td>2021.12.31 簡單，但有點久沒寫Dijkstra，加上又是變形題，多花了一些時間設計流程，總之就是對每個大節點都找最短距離，之後再處理節點中間的小點</td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2315.60</td>
 <td>1187</td>
 <td>Make Array Strictly Increasing</td>
-<td></td>
+<td>2021.12.31 簡單，很標準的DP問題，但我連續繳交錯三次答案，應該要更<strong>小心處理狀態轉換以及初始值</strong>的問題</td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2312.99</td>
 <td>1857</td>
 <td>Largest Color Value in a Directed Graph</td>
-<td></td>
+<td>2021.12.31 簡單，一開始沒注意到只有26種顏色，我直接寫一個toposort並DP更新26種顏色的最大值，同時還能確認是否有cycle，我看以前曾經寫過的版本是先確認cycle，再每個顏色都各跑一輪，顯然今天寫的版本更好，<strong>可以想想如果顏色是10^5是否能解</strong></td>
 </tr>
 <tr>
-<td>&#9744;</td>
+<td>&#9745;</td>
 <td>2310.38</td>
 <td>1959</td>
 <td>Minimum Total Space Wasted With K Resizing Operations</td>
-<td></td>
+<td>2021.12.31 簡單，這題rating感覺頂多2100吧</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2308.65</td>
 <td>1617</td>
 <td>Count Subtrees With Max Distance Between Cities</td>
-<td>2021.12.30 寫得有點太複雜，我對每個bitmask都先確認連通再求直徑。 之前寫過的解是從最小的連通塊開始長大，因此不用再判斷連通，只要小心別重複計算即可，不過未必比較好就是了。雖然計算Graph的直徑確實可以用dfs，但本題可以事先用Floyd-Warshall algorithm建立距離表，程式碼會比較簡潔，惟複雜度會比較高。</td>
+<td>2021.12.31 寫得有點太複雜，我對每個bitmask都先確認連通再求直徑。 之前寫過的解是從最小的連通塊開始長大，因此不用再判斷連通，只要小心別重複計算即可，不過未必比較好就是了。雖然計算Graph的直徑確實可以用dfs，但本題可以事先用Floyd-Warshall algorithm建立距離表，程式碼會比較簡潔，惟複雜度會比較高。</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2307.02</td>
 <td>1655</td>
 <td>Distribute Repeating Integers</td>
-<td>2021.12.30 簡單，題目要仔細看，竟然漏掉m=10這個超強限制，可以想想如果m很大的話能不能解</td>
+<td>2021.12.31 簡單，<strong>題目要仔細看</strong>，竟然漏掉m=10這個超強限制，<strong>可以想想如果m很大的話能不能解</strong></td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2306.85</td>
 <td>862</td>
 <td>Shortest Subarray with Sum at Least K</td>
-<td>2021.12.30 簡單</td>
+<td>2021.12.31 簡單</td>
 </tr>
 <tr>
 <td>&#9745;</td>
@@ -1446,7 +1446,7 @@ res_df<span class="token punctuation">.</span>to_json<span class="token punctuat
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <a href="/about" target="_blank">Aaron Yan</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
