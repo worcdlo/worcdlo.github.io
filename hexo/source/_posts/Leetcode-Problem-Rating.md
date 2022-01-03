@@ -3,6 +3,7 @@ title: Leetcode Problem Rating
 date: 2021-12-30 21:44:20
 img: /images/LeetcodeIcon.png
 toc: true
+top: true 
 mathjax: false 
 summary: Personal Checklist of Rating 2300+ Problems in LC
 categories: 
@@ -19,8 +20,8 @@ tags:
 
 | Finished | Rating  | ID   | Title                                                               | Comment                                            |
 | -------- | ------- | ---- | ------------------------------------------------------------------- | -------------------------------------------------- |
-| &#9745;  | 3018.49 | 1719 | Number Of Ways To Reconstruct A Tree                                |乍看是Graph問題，如果有看出是排列組合問題應該就不是難題了，另外需要會模反知識。|
-| &#9745;  | 2872.03 | 1982 | Find Array Given Subset Sums                                        |[原題都是非負數](https://www.codechef.com/problems/ANUMLA)。負最小跟正最大值顯然就是全負或是全正的集合，再觀察如果`所有當前集合`都扣掉`全負集合`，集合的結構如何變化? 這題需要再多複習。|
+| &#9745;  | 3018.49 | 1719 | Number Of Ways To Reconstruct A Tree                                |<font color=#0000FF>**2021.12.30**</font> 乍看是Graph問題，如果有看出是排列組合問題應該就不是難題了，另外需要會模反知識。|
+| &#9745;  | 2872.03 | 1982 | Find Array Given Subset Sums                                        |<font color=#0000FF>**2021.12.30**</font> [原題都是非負數](https://www.codechef.com/problems/ANUMLA)。負最小跟正最大值顯然就是全負或是全正的集合，再觀察如果`所有當前集合`都扣掉`全負集合`，集合的結構如何變化? **這題需要再多複習**。|
 | &#9744;  | 2863.14 | 770  | Basic Calculator IV                                                 |                                                    |
 | &#9744;  | 2849.48 | 1728 | Cat and Mouse II                                                    |                                                    |
 | &#9744;  | 2817.27 | 1977 | Number of Ways to Separate Numbers                                  |                                                    |
@@ -96,15 +97,15 @@ tags:
 | &#9744;  | 2362.65 | 1520 | Maximum Number of Non-Overlapping Substrings                        |                                                    |
 | &#9744;  | 2358.97 | 1707 | Maximum XOR With an Element From Array                              |                                                    |
 | &#9744;  | 2356.58 | 1467 | Probability of a Two Boxes Having The Same Number of Distinct Balls |                                                    |
-| &#9744;  | 2350.97 | 1713 | Minimum Operations to Make a Subsequence                            |                                                    |
-| &#9744;  | 2350.04 | 837  | New 21 Game                                                         |                                                    |
-| &#9744;  | 2348.52 | 1096 | Brace Expansion II                                                  |                                                    |
-| &#9744;  | 2345.34 | 1611 | Minimum One Bit Operations to Make Integers Zero                    |                                                    |
-| &#9744;  | 2341.45 | 810  | Chalkboard XOR Game                                                 |                                                    |
-| &#9744;  | 2336.52 | 1505 | Minimum Possible Integer After at Most K Adjacent Swaps On Digits   |                                                    |
+| &#9744;  | 2350.97 | 1713 | Minimum Operations to Make a Subsequence                            |2022.01.03 經典將LCS從n1*n2轉換成n1*log(n2)的題目，主要的限制就是target不會重複，不知道重複的話能不能寫 |
+| &#9744;  | 2350.04 | 837  | New 21 Game                                                         |<font color=#0000FF>**2022.01.02**</font> 寫一個n*k的DP解，但是超時  |
+| &#9744;  | 2348.52 | 1096 | Brace Expansion II                                                  |<font color=#0000FF>**2022.01.02**</font> 2021.01.02 寫了一版，但程式設計的很糟，簡直是濫用python方便性的典範，**這題很講究流程設計，需要多參考漂亮的答案**，是個好題目|
+| &#9744;  | 2345.34 | 1611 | Minimum One Bit Operations to Make Integers Zero                    |<font color=#0000FF>**2022.01.02**</font> 不太會，也是需要觀察的題目  |
+| &#9744;  | 2341.45 | 810  | Chalkboard XOR Game                                                 |2021.01.02 這題被噓的很慘，主要是考驗觀察和分析，但應該不算難題  |
+| &#9744;  | 2336.52 | 1505 | Minimum Possible Integer After at Most K Adjacent Swaps On Digits   |2021.01.02 Greedy + BIT的模板題，BIT主要的用途是確認如果把某數字移到最前或最後，中間會穿越多少數字  |
 | &#9745;  | 2333.24 | 1674 | Minimum Moves to Make Array Complementary                           |<font color=#0000FF>**2022.01.01**</font> 對這題有印象，我用BIT維護大於或小於某數的個數，但**這題可以用差分概念解，目前還沒有想通**  |
 | &#9745;  | 2333.06 | 1866 | Number of Ways to Rearrange Sticks With K Sticks Visible            |<font color=#0000FF>**2022.01.01**</font> 單純要完成這題的話，**把DP表印出來很容易就能觀察到規律，但其實這題很難，目前為止還沒想通** |
-| &#9745;  | 2333.01 | 1585 | Check If String Is Transformable With Substring Sort Operations     |2022.01.01 找規律卡了一下，後來發現不論怎麼交換，都不可能把大的數字都不可能向前穿越小的數字，因此從後往前看，只要確認是否存在大的數字把我們想要取走的數字卡住即可  |
+| &#9745;  | 2333.01 | 1585 | Check If String Is Transformable With Substring Sort Operations     |2022.01.01 找規律卡了一下，後來發現不論怎麼交換，大的數字都不可能向前穿越小的數字，因此t從後往前看，只要確認s中是否存在更大的數字卡住我們想要取走的數字即可  |
 | &#9745;  | 2328.43 | 882  | Reachable Nodes In Subdivided Graph                                 |2021.12.31 簡單，但有點久沒寫Dijkstra，加上又是變形題，多花了一些時間設計流程，總之就是對每個大節點都找最短距離，之後再處理節點中間的小點 |
 | &#9745;  | 2315.60 | 1187 | Make Array Strictly Increasing                                      |2021.12.31 簡單，很標準的DP問題，但我連續繳交錯三次答案，應該要更**小心處理狀態轉換以及初始值**的問題 |
 | &#9745;  | 2312.99 | 1857 | Largest Color Value in a Directed Graph                             |2021.12.31 簡單，一開始沒注意到只有26種顏色，我直接寫一個toposort並DP更新26種顏色的最大值，同時還能確認是否有cycle，我看以前曾經寫過的版本是先確認cycle，再每個顏色都各跑一輪，顯然今天寫的版本更好，**可以想想如果顏色是10^5是否能解**|
