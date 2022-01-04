@@ -916,63 +916,63 @@
 <td>2366.71</td>
 <td>1183</td>
 <td>Maximum Number of Ones</td>
-<td></td>
+<td><font color=#0000FF><strong>2022.01.05</strong></font> 這題被鎖了，看了一下題目我很可能不會</td>
 </tr>
 <tr>
 <td>&#9744;</td>
 <td>2363.51</td>
 <td>1755</td>
 <td>Closest Subsequence Sum</td>
-<td></td>
+<td>2021.01.05 標準折半枚舉的題目，窮舉要記得兩件事情: <strong>(1)不能一邊從set取值又一邊插入資料到set中，(2)卡一個很蠢的bug很久，折半的seq1,seq2的長度要等窮舉後才算，記得我出過長度bug好幾次了</strong></td>
 </tr>
 <tr>
 <td>&#9744;</td>
 <td>2362.65</td>
 <td>1520</td>
 <td>Maximum Number of Non-Overlapping Substrings</td>
-<td></td>
+<td>2021.01.05 這題印象太深，是否真的會有點不準，重點在<code>假設有c在substring中，則所有的c都必須在這個substring中</code>，可以先找到每個c的minpos,maxpos，然後從minpos開始往右掃，如果有遇到某個c1的minpos1比minpos小，顯然c必然不會是起點，可以直接拋棄</td>
 </tr>
 <tr>
 <td>&#9744;</td>
 <td>2358.97</td>
 <td>1707</td>
 <td>Maximum XOR With an Element From Array</td>
-<td></td>
+<td>2021.01.05 標準Trie找XOR最大值的題目，奇怪的是自以為寫得很精簡了竟然跑8~9秒，另外值得一提的是，這種<strong>offline的query問題，很多都可以先排序，把窮舉範圍限縮在有效數字</strong>，不但移除了例外判斷式，速度也快上許多</td>
 </tr>
 <tr>
 <td>&#9744;</td>
 <td>2356.58</td>
 <td>1467</td>
 <td>Probability of a Two Boxes Having The Same Number of Distinct Balls</td>
-<td></td>
+<td>2022.01.04 寫了一個4維DP<code>DP[idx][k1][k2][group1_size]</code>，order為<code>(n^2*k^2)</code>，比較有意思的是我的DP計算的是每個狀態的機率值，題目問的是<code>在group1.size==group2.size的時候，剛好顏色數也相等的機率</code>，這其實是一個<strong>條件機率問題</strong>，花蠻久時間才意識到這件事情。</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2350.97</td>
 <td>1713</td>
 <td>Minimum Operations to Make a Subsequence</td>
-<td>2022.01.03 經典將LCS從<code>n1*n2</code>轉換成<code>n1*log(n2)</code>的題目，主要的限制就是target不會重複，也就是<strong>同一個數字不會出現在target內多個位置，可以透過BIT找區間最大，甚至是當作LIS(找到當前pos可以插入stack中的最佳位置)寫</strong></td>
+<td>2022.01.03 經典將LCS從<code>n1*n2</code>轉換成<code>n1*log(n2)</code>的題目，主要的限制就是target不會重複，也就是<strong>同一個數字不會出現在target內多個位置，可以透過BIT找區間最大，甚至是當作LIS也可以(找到當前pos可以插入stack中的最佳位置)</strong></td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2350.04</td>
 <td>837</td>
 <td>New 21 Game</td>
-<td><font color=#0000FF><strong>2022.01.02</strong></font> 寫一個n*k的DP解，但是超時</td>
+<td><font color=#0000FF><strong>2022.01.02</strong></font> 寫一個<code>n*k</code>的DP解，但是超時</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2348.52</td>
 <td>1096</td>
 <td>Brace Expansion II</td>
-<td><font color=#0000FF><strong>2022.01.02</strong></font> 2021.01.02 寫了一版，但程式設計的很糟，簡直是濫用python方便性的典範，<strong>這題很講究流程設計，需要多參考漂亮的答案</strong>，是個好題目</td>
+<td><font color=#0000FF><strong>2022.01.02</strong></font> 2021.01.02 寫了一版，但程式設計的很糟，簡直是濫用python方便性的典範，<strong>這題很講究流程設計，需要多參考漂亮的C++答案</strong>，是個好題目</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2345.34</td>
 <td>1611</td>
 <td>Minimum One Bit Operations to Make Integers Zero</td>
-<td><font color=#0000FF><strong>2022.01.02</strong></font> 不太會，也是需要觀察的題目</td>
+<td><font color=#0000FF><strong>2022.01.02</strong></font> 觀察許久才寫出來的題目，可以先觀察出要在<code>i-th bit</code>放置1或是取走1都是花費<code>2^i-1</code>步，針對一個已經存在的bit有兩種可能的策略： (1)直接取走 (2)往上推到跟下一個bit相鄰先把下一個bit消掉後再取走，也就是<code>dp[i] = min(dp[i-1]+steps(take_current), dp[i-2]+steps(to_adjacent_and_take_both))</code></td>
 </tr>
 <tr>
 <td>&#9745;</td>
@@ -993,14 +993,14 @@
 <td>2333.24</td>
 <td>1674</td>
 <td>Minimum Moves to Make Array Complementary</td>
-<td><font color=#0000FF><strong>2022.01.01</strong></font> 對這題有印象，我用BIT維護大於或小於某數的個數，但<strong>這題可以用差分概念解，目前還沒有想通</strong></td>
+<td><font color=#0000FF><strong>2022.01.01</strong></font> 對這題有印象，我用BIT維護大於或小於target的pair中，統計各自要調整一次還是兩次，但<strong>這題可以用差分概念解</strong>，具體想法可<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-moves-to-make-array-complementary/solution/jie-zhe-ge-wen-ti-xue-xi-yi-xia-chai-fen-shu-zu-on/">參考</a>，定義<code>res[x]為arr[i]+arr[n-i-1]=x需要的操作數</code>，共可以分三種情境討論，假設<code>nums[i]=A, nums[n-i-1]=B</code>： <br> (1)恰好<code>x等於A+B</code>，顯然不用操作 <br> (2)否則<code>x介於[1+min(A,B), limit+max(A,B)]</code>，如果剛好在這個區間內，需要操作一次 <br> (3)否則<code>x介於[2,2*limit]</code>都需要操作兩次 <br><br> 因此針對每個pair可以做三個區間更新<code>[2,limit*2]:+2, [1+min(A,B),limit+max(A,B)]:-1, [A+B]:-1</code>，該文中最精闢的我覺得是這句，由於本題我們<strong>區間更新之後只需要單點查詢，因此不需要使用線段樹或樹狀數組，直接用差分的方式即可。</strong>  <br><br>這題給我一個很大的省思，<strong>差分的概念其實就是區間更新加上逐步查詢</strong>，過去比較直覺的差分是更新之後不再改變，本題的區間是彈性的，是LC差分題目中最具有代表性的題目了</td>
 </tr>
 <tr>
 <td>&#9745;</td>
 <td>2333.06</td>
 <td>1866</td>
 <td>Number of Ways to Rearrange Sticks With K Sticks Visible</td>
-<td><font color=#0000FF><strong>2022.01.01</strong></font> 單純要完成這題的話，<strong>把DP表印出來很容易就能觀察到規律，但其實這題很難，目前為止還沒想通</strong></td>
+<td><font color=#0000FF><strong>2022.01.01</strong></font> 單純要完成這題的話，先寫出一個<code>(n^2)*k</code>的答案，<strong>再把DP表印出來很容易就能觀察到規律為</strong>:<code>DP(n,k)=(n-1)*DP(n-1,k)+DP(n-1,k-1)</code>，其實這就是 <strong>第一斯特林數(Stirling number of the first kind)</strong> ，看過兩個可以接受的解釋。<br><br> <strong>(版本一)</strong> 針對DP(n,k)考慮目前排在最後的那一根木棒(1)如果該木棒是最長的，則剩下n-1支木棒要有k-1支看的到，也就是<code>DP(n-1,k-1)</code>；(2)如果該木棒不是最長的，顯然最後一根木棒被擋住，也就是前面n-1支木棒得看的到k支才行，又n支木棒中，最後一跟不是最長的情況有n-1種，因此<code>(n-1)*DP(n-1,k)</code>。<br><br> <strong>(版本二)</strong> 假設從大到小慢慢插入木棒，當我們要插入一根當前最小的木棒時，(1)如果木棒是插在最前端，代表可以多看到一根木棒<code>DP(n-1,k-1) -&gt;  DP(n,k)</code>；(2)如果不是插在最前端，此時有n-1種插法，不論哪種插法都不影響被看到的木棒數量，因此<code>(n-1)*DP(n-1,k)-&gt;DP(n,k)</code>。</td>
 </tr>
 <tr>
 <td>&#9745;</td>

@@ -536,7 +536,8 @@
 <span class="token function">git</span> push -u origin master <span class="token comment" spellcheck="true"># -u 表示將origin/master設定為本地master分支的upstream</span>
 <span class="token function">git</span> push -u origin <span class="token operator">&lt;</span>local-branch<span class="token operator">></span>:<span class="token operator">&lt;</span>remote-branch<span class="token operator">></span>
 </code></pre>
-<h3 id="Pull-amp-Fetch"><a href="#Pull-amp-Fetch" class="headerlink" title="Pull &amp; Fetch"></a>Pull &amp; Fetch</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#當本地branch跟remote的branch不同時，也能checkout remote branch</span>
+<h3 id="Pull-amp-Fetch"><a href="#Pull-amp-Fetch" class="headerlink" title="Pull &amp; Fetch"></a>Pull &amp; Fetch</h3><p><img src="/images/git/pull_fetch.png" alt="Pull vs. Fetch"></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#當本地branch跟remote的branch不同時，也能checkout remote branch</span>
 <span class="token function">git</span> checkout origin/main
 
 <span class="token comment" spellcheck="true"># 當我們clone一個repo下來，master之外的其他branches並不會被載下來</span>
@@ -557,8 +558,9 @@
 <span class="token comment" spellcheck="true"># git pull = git fetch + git merge</span>
 <span class="token comment" spellcheck="true"># May cause Merge Conflict</span>
 <span class="token function">git</span> pull <span class="token operator">&lt;</span>remote<span class="token operator">></span> <span class="token operator">&lt;</span>branch<span class="token operator">></span>
+<span class="token comment" spellcheck="true"># 預設抓origin中同名字的branch</span>
 </code></pre>
-
+<h1 id="Collaboration"><a href="#Collaboration" class="headerlink" title="Collaboration"></a>Collaboration</h1>
                 
             </div>
             <hr/>
