@@ -416,9 +416,9 @@
 </ol>
 <p>其他</p>
 <ol>
-<li>花了蠻多時間在研究binary search要挑哪個數字的問題，感覺對bs還是不夠熟練，<strong>沒辦法直覺的確定要用bisect_left還是bisect_right，以及得到的idx要不要減</strong>1。</li>
+<li>花了蠻多時間在研究binary search要挑哪個數字的問題，感覺對bs還是不夠熟練，<strong>沒辦法直覺的確定要用bisect_left還是bisect_right，以及得到的idx要不要減1</strong>。</li>
 <li>另外我的做法中，這題顯然適合將邊界再補上一層，這樣就不用在離開for之外又再跑一層，也不會有第二次WA錯誤</li>
-<li>這題絕大部分的人都寫<strong>prefix sum matrix(pfsm)<strong>解法，對每個點都尋找是不是郵票的左上角，也就是往右下<code>W*H</code>範圍內不能有障礙物，這步可以透過psfm得到。接著有兩個做法(1)對每張郵票都更新<code>W*H</code>範圍，這部分可以用BIT2去實作，</strong>區間更新單點查詢</strong>，每次更新花費O(log(m<em>n))；(2)對每個空白點，都搜尋是否有郵票能蓋到他，也就是往*<em>左上</em></em><code>W*H</code>範圍內找是否存在一張郵票，這步也可以透過對放置郵票的matrix做pfsm得到。</li>
+<li>這題絕大部分的人都寫<strong>prefix sum matrix(pfsm)<strong>解法，對每個點都尋找是不是郵票的左上角，也就是往右下<code>W*H</code>範圍內不能有障礙物，這步可以透過psfm得到。接著有兩個做法(1)對每張郵票都更新<code>W*H</code>範圍，這部分可以用BIT2去實作，</strong>區間更新單點查詢</strong>，每次更新花費<code>O(log(m*n))</code>；(2)對每個空白點，都搜尋是否有郵票能蓋到他，也就是往<strong>左上</strong> <code>W*H</code>範圍內找是否存在一張郵票，這步也可以透過對放置郵票的matrix做pfsm得到。</li>
 </ol>
 <h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>68分鐘完賽加上4次WA：總名次346/15120</p>
 <hr>
