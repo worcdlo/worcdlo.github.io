@@ -574,8 +574,23 @@
 <h2 id="centralized-workflow-problem"><a href="#centralized-workflow-problem" class="headerlink" title="centralized workflow problem"></a>centralized workflow problem</h2><ul>
 <li>Lots of time spnet resolveing conflict and merge code, especially as team size scales up.</li>
 <li>No one can work on anything without disturbing the main codebase. How do you experiment?</li>
-<li></li>
+<li>The only way to collaborate on a feature together with another teammate is to push incomplete code to master. Other teammates now have broken code.</li>
 </ul>
+<h2 id="Feature-Branches"><a href="#Feature-Branches" class="headerlink" title="Feature Branches"></a>Feature Branches</h2><p>Rather than working directly on master, all developer should be done on separate branches</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> fetch
+<span class="token function">git</span> branch -r
+<span class="token function">git</span> switch origin branch_name
+<span class="token function">git</span> pull origin branch_name
+
+在master，如果不透過PR，可以直接切到master並
+<span class="token function">git</span> merge branch_name
+</code></pre>
+<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p>to alert team members to new work that needs to be reviewed.</p>
+<ol>
+<li>Do some work locally on a feature branch then push up the feature.</li>
+<li>Open a Pull Request using the feature branch just pushed up to Github</li>
+<li>Wait for the PR to be approved and merged.</li>
+</ol>
 
                 
             </div>
