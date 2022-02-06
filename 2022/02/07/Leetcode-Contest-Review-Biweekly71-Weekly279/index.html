@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode Contest Review - Biweekly 69 &amp; Weekly 275, AKAARTOEN">
+    <meta name="keywords" content="Leetcode Contest Review - Biweekly 71 &amp; Weekly 279, AKAARTOEN">
     <meta name="description" content="Personal review of Leetcode contest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode Contest Review - Biweekly 69 &amp; Weekly 275 | AKAARTOEN</title>
+    <title>Leetcode Contest Review - Biweekly 71 &amp; Weekly 279 | AKAARTOEN</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -231,7 +231,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode Contest Review - Biweekly 69 &amp; Weekly 275</h1>
+                    <h1 class="description center-align post-title">Leetcode Contest Review - Biweekly 71 &amp; Weekly 279</h1>
                 </div>
             </div>
         </div>
@@ -380,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-01-09
+                    2022-02-06
                 </div>
                 
 
@@ -402,53 +402,29 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="/images/LeetcodeIcon.png"></p>
-<h2 id="Leetcode-Biweekly-Contest-69-Review"><a href="#Leetcode-Biweekly-Contest-69-Review" class="headerlink" title="Leetcode Biweekly Contest 69 Review"></a>Leetcode Biweekly Contest 69 Review</h2><p>這兩天LC剛開賽前兩分鐘都進不去，後端的部分可能需要再加強。</p>
-<h3 id="Q1-LC-2129-Capitalize-the-Title"><a href="#Q1-LC-2129-Capitalize-the-Title" class="headerlink" title="Q1: LC-2129. Capitalize the Title"></a>Q1: LC-2129. Capitalize the Title</h3><p>比typing速度，這題用python絕對比其他都方便許多</p>
-<h3 id="Q2-LC-2130-Maximum-Twin-Sum-of-a-Linked-List"><a href="#Q2-LC-2130-Maximum-Twin-Sum-of-a-Linked-List" class="headerlink" title="Q2: LC-2130. Maximum Twin Sum of a Linked List"></a>Q2: LC-2130. Maximum Twin Sum of a Linked List</h3><p>一開始沒有看懂題目，多花了一些時間</p>
-<h3 id="Q3-LC-2131-Longest-Palindrome-by-Concatenating-Two-Letter-Words"><a href="#Q3-LC-2131-Longest-Palindrome-by-Concatenating-Two-Letter-Words" class="headerlink" title="Q3: LC-2131. Longest Palindrome by Concatenating Two Letter Words"></a>Q3: LC-2131. Longest Palindrome by Concatenating Two Letter Words</h3><p>以難度而言我覺得放在第二題是比較恰當，就是找到跟自己翻轉後相同的字，再比出現次數而已。有其中一個粗心狀況是忘記乘兩倍導致WA，不但找bug花時間，而且倒扣更是悽慘。</p>
-<p><strong>如何把程式寫的精確，並改正這種粗心的毛病</strong>，是迫切需要加強的</p>
-<h3 id="Q4-LC-2132-Stamping-the-Grid"><a href="#Q4-LC-2132-Stamping-the-Grid" class="headerlink" title="Q4: LC-2132. Stamping the Grid"></a>Q4: LC-2132. Stamping the Grid</h3><p>~~<br>這題算是頗有難度的題目。我採用的是暴力解搭配sliding window maximum的優化，寫得很繁瑣，而且還WA三次，分別對應三種不同類型的測資，我認為這三次都是不該出現的倒扣。</p>
-<p>WA</p>
-<ol>
-<li>沒注意到全部都是障礙時，就不用管H和W，直接通過</li>
-<li>離開迴圈之後再圈外做最後一次檢查，忘記把queue超出邊界的部分移除</li>
-<li><strong>queue的大小沒數對</strong>，我覺得這個是很嚴重的問題，想的不夠清楚<br>~~</li>
-</ol>
-<p>以上的方法是錯的，請看<strong>prefix sum matrix</strong>就好</p>
-<p>其他</p>
-<ol>
-<li>花了蠻多時間在研究binary search要挑哪個數字的問題，感覺對bs還是不夠熟練，<strong>沒辦法直覺的確定要用bisect_left還是bisect_right，以及得到的idx要不要減1</strong>。</li>
-<li>另外我的做法中，這題顯然適合將邊界再補上一層，這樣就不用在離開for之外又再跑一層，也不會有第二次WA錯誤</li>
-<li>這題絕大部分的人都寫<strong>prefix sum matrix(pfsm)<strong>解法，對每個點都尋找是不是郵票的左上角，也就是往右下<code>W*H</code>範圍內不能有障礙物，這步可以透過psfm得到。接著有兩個做法(1)對每張郵票都更新<code>W*H</code>範圍，這部分可以用BIT2去實作，</strong>區間更新單點查詢</strong>，每次更新花費<code>O(log(m*n))</code>；(2)對每個空白點，都搜尋是否有郵票能蓋到他，也就是往<strong>左上</strong> <code>W*H</code>範圍內找是否存在一張郵票，這步也可以透過對放置郵票的matrix做pfsm得到。</li>
-</ol>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>68分鐘完賽加上4次WA：總名次346/15120</p>
+<h2 id="Leetcode-Biweekly-Contest-71-Review"><a href="#Leetcode-Biweekly-Contest-71-Review" class="headerlink" title="Leetcode Biweekly Contest 71 Review"></a>Leetcode Biweekly Contest 71 Review</h2><p>這場比賽</p>
+<h3 id="Q1-LC-2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits"><a href="#Q1-LC-2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits" class="headerlink" title="Q1: LC-2160. Minimum Sum of Four Digit Number After Splitting Digits"></a>Q1: LC-2160. Minimum Sum of Four Digit Number After Splitting Digits</h3><p>使用bitmask窮舉，寫了五分鐘有點久。這題有觀察到應該可以 <code>(a0, a2) + (a1, a3)</code>但是不敢寫，後來還是寫一個窮舉的版本。</p>
+<h3 id="Q2-LC-2161-Partition-Array-According-to-Given-Pivot"><a href="#Q2-LC-2161-Partition-Array-According-to-Given-Pivot" class="headerlink" title="Q2: LC-2161. Partition Array According to Given Pivot"></a>Q2: LC-2161. Partition Array According to Given Pivot</h3><p>比typing速度</p>
+<h3 id="Q3-LC-2162-Minimum-Cost-to-Set-Cooking-Time"><a href="#Q3-LC-2162-Minimum-Cost-to-Set-Cooking-Time" class="headerlink" title="Q3: LC-2162. Minimum Cost to Set Cooking Time"></a>Q3: LC-2162. Minimum Cost to Set Cooking Time</h3><p>實作題，但是題目的數據範圍有一個陷阱，因為這個陷阱卡了應該有二十分鐘。<strong>以後數據範圍應該要深思</strong></p>
+<h3 id="Q4-LC-2163-Minimum-Difference-in-Sums-After-Removal-of-Elements"><a href="#Q4-LC-2163-Minimum-Difference-in-Sums-After-Removal-of-Elements" class="headerlink" title="Q4: LC-2163. Minimum Difference in Sums After Removal of Elements"></a>Q4: LC-2163. Minimum Difference in Sums After Removal of Elements</h3><p>沒難度。</p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>47分鐘完賽加上1次WA：總名次155/16927</p>
 <hr>
-<h2 id="Leetcode-Weekly-Contest-275-Review"><a href="#Leetcode-Weekly-Contest-275-Review" class="headerlink" title="Leetcode Weekly Contest 275 Review"></a>Leetcode Weekly Contest 275 Review</h2><p>一樣遇到剛開賽會登不進去</p>
-<h3 id="Q1-LC-2133-Check-if-Every-Row-and-Column-Contains-All-Numbers"><a href="#Q1-LC-2133-Check-if-Every-Row-and-Column-Contains-All-Numbers" class="headerlink" title="Q1: LC-2133. Check if Every Row and Column Contains All Numbers"></a>Q1: LC-2133. Check if Every Row and Column Contains All Numbers</h3><p>標題都寫row和col了，敘述也有講清楚，結果我只有檢查row，這真是最不應該犯的WA，<strong>題目真的要看仔細</strong>阿</p>
-<h3 id="Q2-LC-2134-Minimum-Swaps-to-Group-All-1’s-Together-II"><a href="#Q2-LC-2134-Minimum-Swaps-to-Group-All-1’s-Together-II" class="headerlink" title="Q2: LC-2134. Minimum Swaps to Group All 1’s Together II"></a>Q2: LC-2134. Minimum Swaps to Group All 1’s Together II</h3><p>prefix或是sliding window的題目，我覺得寫得還ok</p>
-<h3 id="Q3-LC-2135-Intervals-Between-Identical-Elements"><a href="#Q3-LC-2135-Intervals-Between-Identical-Elements" class="headerlink" title="Q3: LC-2135. Intervals Between Identical Elements"></a>Q3: LC-2135. Intervals Between Identical Elements</h3><p>這題算難得算是有第三題的水準，targets內的words是否能透過任一starts裡的word經過兩步運算後得到。</p>
-<ol>
-<li>這題寫了12分鐘，題目有點長，應該有花五分鐘在看敘述，<strong>英文閱讀能力及抓重點能力</strong>要加強</li>
-<li>中間花了一些時間考慮要變動targets還是starts，其實都可以，反正重點是<strong>英文字母只有26個</strong>，而且這題無關乎字的排序，只考慮每個字母的數量而已，是非常強力的constraint，不要被字串的長度嚇到就好。</li>
-</ol>
-<h3 id="Q4-LC-2136-Earliest-Possible-Day-of-Full-Bloom"><a href="#Q4-LC-2136-Earliest-Possible-Day-of-Full-Bloom" class="headerlink" title="Q4: LC-2136. Earliest Possible Day of Full Bloom"></a>Q4: LC-2136. Earliest Possible Day of Full Bloom</h3><p>一開始就猜測是排序類Greedy問題，但花了很久的時間才決定要實作。<br>假設有兩個seed，分別<code>(p1, g1), (p2, g2)</code>，哪個seed一定要先種？</p>
-<blockquote>
-<p>證明seed1先種比較小還是seed2先種比較小，等同決定一個策略找到下面公式<br><code>min(max(p1 + g1, p1 + p2 + g2), max(p2 + g2, p1 + p2 + g1))</code><br>假設<code>g1 &gt; g2</code>，可以發現</p>
-<blockquote>
-<p><code>p1 + p2 + g1 &gt; p2 + g2</code><br><code>p1 + p2 + g1 &gt; p1 + p2 + g2</code>: seed1先種的case2<br><code>p1 + p2 + g1 &gt; p1 + g1</code>: seed1先種的case1<br>也就是如果seed1後種的話，最大值都會超過seed1先種的結果<br>因此必然seed1要先種</p>
-</blockquote>
-</blockquote>
-<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p>算是場簡單的比賽，而且第四題幾乎直覺猜都會猜對。34分鐘完賽加上1次WA，排名229/16129</p>
+<h2 id="Leetcode-Weekly-Contest-279-Review"><a href="#Leetcode-Weekly-Contest-279-Review" class="headerlink" title="Leetcode Weekly Contest 279 Review"></a>Leetcode Weekly Contest 279 Review</h2><h3 id="Q1-LC-2164-Sort-Even-and-Odd-Indices-Independently"><a href="#Q1-LC-2164-Sort-Even-and-Odd-Indices-Independently" class="headerlink" title="Q1: LC-2164. Sort Even and Odd Indices Independently"></a>Q1: LC-2164. Sort Even and Odd Indices Independently</h3><p>簡單但是寫起來有點麻煩的題目，不知道怎麼寫比較漂亮</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#Lee215的兩行解</span>
+<span class="token keyword">def</span> <span class="token function">sortEvenOdd</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> A<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    A<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> A<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> sorted<span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sorted<span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> A
+</code></pre>
+<h3 id="Q2-LC-2165-Smallest-Value-of-the-Rearranged-Number"><a href="#Q2-LC-2165-Smallest-Value-of-the-Rearranged-Number" class="headerlink" title="Q2: LC-2165. Smallest Value of the Rearranged Number"></a>Q2: LC-2165. Smallest Value of the Rearranged Number</h3><p>寫得有點太複雜，看到一個簡單的方式，從小排到大，找到第一個非零的數字跟最開頭的零交換即可。</p>
+<h3 id="Q3-LC-2166-Design-Bitset"><a href="#Q3-LC-2166-Design-Bitset" class="headerlink" title="Q3: LC-2166. Design Bitset"></a>Q3: LC-2166. Design Bitset</h3><p>沒難度，比閱讀速度的題目</p>
+<h3 id="Q4-LC-2167-Minimum-Time-to-Remove-All-Cars-Containing-Illegal-Goods"><a href="#Q4-LC-2167-Minimum-Time-to-Remove-All-Cars-Containing-Illegal-Goods" class="headerlink" title="Q4: LC-2167. Minimum Time to Remove All Cars Containing Illegal Goods"></a>Q4: LC-2167. Minimum Time to Remove All Cars Containing Illegal Goods</h3><p>這題還頗有難度，雖然寫對了。但我並沒有真的搞懂自己的DP轉移式</p>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p>超過一小時都卡在第四題。這場第四題我覺得應該有不少人亂猜也寫對，整體算是難度適中的一場比賽了</p>
+<p>83分鐘完賽加上2次WA：總名次818/18838</p>
 <hr>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li><strong>題目要看清楚</strong>，以後比賽前務必默念這句</li>
 <li><strong>英文閱讀能力需要提升</strong></li>
-<li><strong>程式寫的清晰精確可以減少粗心</strong></li>
-<li><strong>邊界條件要考慮清楚</strong>，包含binary search或是一些sliding window等等</li>
-<li><strong>離開迴圈後做最後一輪檢查的問題，可以考慮多插入一個數字使之在迴圈內檢查</strong>，否則要小心是否漏掉什麼</li>
-<li><strong>BIT的區間更新單點查詢</strong>，可以再多練練模板題，<strong>二維</strong>的也要練</li>
-<li><strong>prefix sum matrix的問題</strong>，可以再多想想</li>
-<li>英文字只有26個是很強力的限制，不要忘記了</li>
+<li><strong>實作題寫之前要想一下有沒有什麼更簡單的方式，不然都花太久了</strong></li>
+<li><strong>變數的邊界條件要考慮清楚</strong></li>
 </ul>
 
                 
@@ -476,7 +452,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://worcdlo.github.io/2022/01/09/Leetcode-Contest-Review-Biweekly69-Weekly275/">https://worcdlo.github.io/2022/01/09/Leetcode-Contest-Review-Biweekly69-Weekly275/</a>
+                    <a href="https://worcdlo.github.io/2022/02/07/Leetcode-Contest-Review-Biweekly71-Weekly279/">https://worcdlo.github.io/2022/02/07/Leetcode-Contest-Review-Biweekly71-Weekly279/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,9 +542,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/02/07/Leetcode-Contest-Review-Biweekly71-Weekly279/">
                     <div class="card-image">
@@ -585,9 +562,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -600,6 +577,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -626,12 +604,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/03/Leetcode-Contest-Review-Weekly274/">
+                <a href="/2022/01/09/Leetcode-Contest-Review-Biweekly69-Weekly275/">
                     <div class="card-image">
                         
-                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Weekly 274">
+                        <img src="/images/LeetcodeIcon.png" class="responsive-img" alt="Leetcode Contest Review - Biweekly 69 &amp; Weekly 275">
                         
-                        <span class="card-title">Leetcode Contest Review - Weekly 274</span>
+                        <span class="card-title">Leetcode Contest Review - Biweekly 69 &amp; Weekly 275</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -642,7 +620,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
                             </span>
                         <span class="publish-author">
                             
